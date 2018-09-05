@@ -1,5 +1,6 @@
 const cheerio = require('cheerio');
 const fetch = require('node-fetch');
+const fs = require('fs');
 
 async function main() {
   try {
@@ -9,8 +10,10 @@ async function main() {
       await getRecipePage(i, links);
     }
 
-    //add links to file
-    console.log(links)
+    fs.writeFile('recipeLinks.txt', links, (e) => {
+      if (e) throw e;
+      console.log('Saved!');
+    });
   }
   catch (e) {
     console.error(e);
