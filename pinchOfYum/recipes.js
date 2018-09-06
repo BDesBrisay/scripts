@@ -10,10 +10,11 @@ async function main() {
       await getRecipePage(i, links);
     }
 
-    fs.writeFile('recipeLinks.txt', links, (e) => {
-      if (e) throw e;
-      console.log('Saved!');
-    });
+    for (let link in links) {
+      fs.appendFile('recipeLinks.txt', `${links[link]}\n`, (e) => {
+        if (e) throw e;
+      });
+    }
   }
   catch (e) {
     console.error(e);
