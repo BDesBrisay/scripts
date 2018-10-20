@@ -1,0 +1,43 @@
+.apodLabel {
+    margin: 5px 15px 0;
+}
+.apodImage {
+    width: 100%;
+    margin-top: 15px;
+}
+.apodIframe {
+    width: 100%;
+    height: 300px;
+    margin-top: 15px;
+}
+.sideContain {
+    composes: sideCol from '../index.css';
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+.apodName {
+    margin: 15px 0 0;
+}
+.apodAuthor {
+    margin: 0;
+    color: gray;
+}
+.apodDate {
+    margin: 10px 0;
+}
+.apodDesc {
+    margin: 5px 0;
+}
+.apodLink {
+    color: #1a0dab;
+}
+
+@media screen and (min-width: 840px) {
+    .apodIframe {
+        height: calc(30vw - 55px) !important;
+        min-height: 330px;
+    }
+    .sideContain {
+        padding: 0 30px;
+    }
+}

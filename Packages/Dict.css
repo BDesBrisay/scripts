@@ -1,0 +1,24 @@
+.definitionContain {
+    display: flex;
+    flex-flow: row nowrap;
+    font-size: 14px;
+}
+.mainContain {
+    composes: mainCol from '../index.css';
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+.mainWord {
+    margin: 0px 0px 5px;
+    font-size: 28px;
+}
+.definitionNum {
+    margin: 5px 10px;
+}
+.definition {
+    margin: 5px 0;
+}
+.syntaxHeader {
+    margin: 15px 0 10px;
+    font-size: 14px;
+}
