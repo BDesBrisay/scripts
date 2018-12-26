@@ -1,0 +1,5 @@
+.mathContain {
+    composes: mainCol from '../index.css';
+    padding: 0 15px;
+    box-sizing: border-box;
+}
