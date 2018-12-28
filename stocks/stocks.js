@@ -23,9 +23,11 @@ const normalize = (obj) => {
     input: { 
       open: obj.open / scale, 
       vwapDiff: obj.open - obj.vwap, 
-      belowSAR: obj.open > obj.sar,
+      aboveSAR: obj.open > obj.sar,
       macd: obj.macd,
-      aboveSMA: obj.open > obj.sma
+      aboveSMA50: obj.open > obj.sma50,
+      aboveSMA100: obj.open > obj.sma100,
+      aboveSMA200: obj.open > obj.sma200
     }, 
     output: [ gain ]
   }
@@ -47,15 +49,27 @@ const getData = async (symbol) => {
     { method: 'get', headers: { 'Content-Type': 'application/json' } }
   ).then(res => res.json());
 
-  const AVSMA = await fetch(
+  const AVSMA50 = await fetch(
+    `https://www.alphavantage.co/query?function=SMA&symbol=${symbol}&interval=daily&time_period=50&series_type=open&apikey=9RUKGUEQ3Y8VOFG9`,
+    { method: 'get', headers: { 'Content-Type': 'application/json' } }
+  ).then(res => res.json());
+
+  const AVSMA100 = await fetch(
     `https://www.alphavantage.co/query?function=SMA&symbol=${symbol}&interval=daily&time_period=100&series_type=open&apikey=9RUKGUEQ3Y8VOFG9`,
+    { method: 'get', headers: { 'Content-Type': 'application/json' } }
+  ).then(res => res.json());
+
+  const AVSMA200 = await fetch(
+    `https://www.alphavantage.co/query?function=SMA&symbol=${symbol}&interval=daily&time_period=200&series_type=open&apikey=9RUKGUEQ3Y8VOFG9`,
     { method: 'get', headers: { 'Content-Type': 'application/json' } }
   ).then(res => res.json());
 
   const newData = IEX.map((item, i) => {
     if (!!AVSAR['Technical Analysis: SAR'][item.date]) item.sar = Number(AVSAR['Technical Analysis: SAR'][item.date]['SAR']);
     if (!!AVMACD['Technical Analysis: MACD'][item.date]) item.macd = Number(AVMACD['Technical Analysis: MACD'][item.date]['MACD']);
-    if (!!AVSMA['Technical Analysis: SMA'][item.date]) item.sma = Number(AVSMA['Technical Analysis: SMA'][item.date]['SMA']);
+    if (!!AVSMA50['Technical Analysis: SMA'][item.date]) item.sma50 = Number(AVSMA50['Technical Analysis: SMA'][item.date]['SMA']);
+    if (!!AVSMA100['Technical Analysis: SMA'][item.date]) item.sma100 = Number(AVSMA100['Technical Analysis: SMA'][item.date]['SMA']);
+    if (!!AVSMA200['Technical Analysis: SMA'][item.date]) item.sma200 = Number(AVSMA200['Technical Analysis: SMA'][item.date]['SMA']);
     return item;
   });
 
@@ -72,7 +86,7 @@ const main = async () => {
   const rawData = await getData('GOOG');
 
   const trainingData = rawData.map(normalize);
-  const net = new brain.NeuralNetwork({ hiddenLayers: [12] })
+  const net = new brain.NeuralNetwork({ hiddenLayers: [14] })
 
   content += '<p>Training...</p>';
   net.train(trainingData);
@@ -87,6 +101,8 @@ const main = async () => {
 
   const correct = results.filter(item => item === true).length;
   content += `<p>Accuracy: ${(100 * correct / results.length).toFixed(0)}% (${correct} / ${results.length})`;
+  
+  content += `<p>${net.run({ open: 1.051, aboveSAR: true, aboveSMA50: true, aboveSMA100: true, aboveSMA200: true })}</p>`
 
   content += '</div>'
   root.insertAdjacentHTML('beforeend', content);
