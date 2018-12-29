@@ -135,18 +135,18 @@ const main = async () => {
 
     content += '<p>Training...</p>';
     net.train(trainingData.slice(0, trainingData.length - 126), {
-      iterations: 50000
+      iterations: 75000
     });
 
     console.log(trainingData.slice(trainingData.length - 126))
 
-    content += '<p>Backtesting over 6 months...</p><div style="display:flex;">';
+    content += '<p>Backtesting over 1 year...</p><div style="display:flex;">';
     const results = [];
     let error = 0;
     let loss = 0;
     let gain = 0;
     let value = 10000;
-    for (let i = trainingData.length - 126; i < trainingData.length; i++) {
+    for (let i = trainingData.length - 252; i < trainingData.length; i++) {
       const res = net.run(trainingData[i].input);
       const truth = Math.round(res) === trainingData[i].output[0];
       results.push(truth);
@@ -169,8 +169,8 @@ const main = async () => {
     const correct = results.filter(item => item === true).length;
     content += `<p>Accuracy: <strong>${(100 * correct / results.length).toFixed(0)}%</strong> (${correct} / ${results.length})</p>`;
     content += `<p>Avg. Error: <strong>${(error / results.length).toFixed(5)}%</strong> (${error.toFixed(5)} / ${results.length})</p>`;
-    content += `<p>Starting Value of $10000 Over 6 months: <strong style="${value > 0 ? 'color: green' : 'color: red'}">$${value.toFixed(2)}</strong></p>`;
-    content += `<p>Percent Profit: <strong style="${gain - loss > 0 ? 'color: green' : 'color: red'}">${((value / 100) - 100).toFixed(2)}%</strong>`;
+    content += `<p>Starting Value of $10000 Over 1 year: <strong style="${value > 0 ? 'color: green' : 'color: red'}">$${value.toFixed(2)}</strong></p>`;
+    content += `<p>Percent Profit: <strong style="${gain - loss > 0 ? 'color: green' : 'color: red'}">${(value / 100).toFixed(2)}%</strong>`;
 
     // Test Input
     // content += `<p>Test Prediction Output: ${net.run({ aboveSAR: true, rsi: 0.4, apo: -7, underSMA50: true })}</p>`
