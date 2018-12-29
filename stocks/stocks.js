@@ -40,7 +40,7 @@ const normalize = (obj) => {
 const getData = async (symbol) => {
   try {  
     const IEX = await fetch(
-      `https://api.iextrading.com/1.0/stock/${symbol}/chart/1y`, 
+      `https://api.iextrading.com/1.0/stock/${symbol}/chart/2y`, 
       { method: 'get', headers: { 'Content-Type': 'application/json' } }
     ).then(res => res.json());
     
@@ -119,6 +119,7 @@ const getData = async (symbol) => {
 }
 
 const main = async () => {
+  const start = Date.now();
   try {
     const root = document.getElementById('root');
     let content = `
@@ -126,29 +127,53 @@ const main = async () => {
         <h1>Predicting gain at close using psar, macd, rsi, apo, and moving averages</h1>
     `;
 
-    const symbol = 'SPY';
+    const symbol = 'AAPL';
     const rawData = await getData(symbol);
 
     const trainingData = rawData.map(normalize);
-    const net = new brain.NeuralNetwork({ hiddenLayers: [15] })
+    const net = new brain.NeuralNetwork({ hiddenLayers: [12] })
 
     content += '<p>Training...</p>';
-    net.train(trainingData);
+    net.train(trainingData.slice(0, trainingData.length - 126), {
+      iterations: 50000
+    });
 
-    content += '<p>Backtesting over 1 year...</p><div style="display:flex">';
+    console.log(trainingData.slice(trainingData.length - 126))
+
+    content += '<p>Backtesting over 6 months...</p><div style="display:flex;">';
     const results = [];
-    for (let i = 0; i < trainingData.length; i++) {
+    let error = 0;
+    let loss = 0;
+    let gain = 0;
+    let value = 10000;
+    for (let i = trainingData.length - 126; i < trainingData.length; i++) {
       const res = net.run(trainingData[i].input);
       const truth = Math.round(res) === trainingData[i].output[0];
       results.push(truth);
-      content += `<div style="height:20px;flex:1;background:${truth ? 'green' : 'red'}"></div>`;
-      if (i === trainingData.length - 1) content += `</div><p>Prediction for ${symbol} to gain today: ${console.log(trainingData[i].input),Number(res)}</p>`;
+      content += `<div style="height: 20px; flex: 1; background: ${truth ? 'green' : 'red'};"></div>`;
+
+      if (truth) {
+        gain += Math.abs(rawData[i].changePercent);
+        value = value * (1 + Math.abs(rawData[i].changePercent / 100));
+        console.log(`Gain of ${value * Math.abs(rawData[i].changePercent / 100)} -> ${value}`);
+      }
+      else {
+        loss += Math.abs(rawData[i].changePercent);
+        value = value * (1 + (-1 * Math.abs(rawData[i].changePercent / 100)));
+        console.log(`Loss of ${value * -1 * Math.abs(rawData[i].changePercent / 100)} -> ${value}`);
+      }
+      if (Math.abs(trainingData[i].output[0] - res) > 0.05) error += Math.abs(trainingData[i].output[0] - res);
+      if (i === trainingData.length - 1) content += `</div><p>Prediction for ${symbol} to gain ${rawData[i].label}: ${console.log(trainingData[i].input),Number(res)}</p>`;
     }
 
     const correct = results.filter(item => item === true).length;
-    content += `<p>Accuracy: <strong>${(100 * correct / results.length).toFixed(0)}%</strong> (${correct} / ${results.length})`;
-    
-    content += `<p>${net.run({ aboveSAR: true, rsi: 0.4, apo: -7, underSMA50: true })}</p>`
+    content += `<p>Accuracy: <strong>${(100 * correct / results.length).toFixed(0)}%</strong> (${correct} / ${results.length})</p>`;
+    content += `<p>Avg. Error: <strong>${(error / results.length).toFixed(5)}%</strong> (${error.toFixed(5)} / ${results.length})</p>`;
+    content += `<p>Starting Value of $10000 Over 6 months: <strong style="${value > 0 ? 'color: green' : 'color: red'}">$${value.toFixed(2)}</strong></p>`;
+    content += `<p>Percent Profit: <strong style="${gain - loss > 0 ? 'color: green' : 'color: red'}">${((value / 100) - 100).toFixed(2)}%</strong>`;
+
+    // Test Input
+    // content += `<p>Test Prediction Output: ${net.run({ aboveSAR: true, rsi: 0.4, apo: -7, underSMA50: true })}</p>`
 
     content += '</div>'
     root.insertAdjacentHTML('beforeend', content);
@@ -156,6 +181,8 @@ const main = async () => {
   catch (e) {
     console.error(e);
   }
+  const diff = Date.now() - start;
+  console.log(diff)
 }
 
 main()
