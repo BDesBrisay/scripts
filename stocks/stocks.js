@@ -34,7 +34,7 @@ const normalize = (obj) => {
   const gain = obj.close > obj.open ? 1 : 0;
   return { 
     input: { 
-      aboveSAR: obj.open > obj.sar,
+      aboveSAR: obj.sar / (obj.open * 2),
       macd: obj.macd,
       apo: obj.apo,
       rsi: obj.rsi / 100,
@@ -51,7 +51,7 @@ const normalize = (obj) => {
 const getData = async (symbol, first) => {
   try {  
     const IEX = await fetch(
-      `https://api.iextrading.com/1.0/stock/${symbol}/chart/2y`, 
+      `https://api.iextrading.com/1.0/stock/${symbol}/chart/5y`, 
       { method: 'get', headers: { 'Content-Type': 'application/json' } }
     ).then(res => res.json());
     
@@ -138,20 +138,21 @@ const main = async () => {
         <h1>Predicting gain at close using psar, macd, rsi, apo, and moving averages</h1>
     `;
 
-    const symbol = 'TWTR';
+    const symbol = 'NFLX';
     const rawData = await getData(symbol, true);
+    let trainingData = rawData.map(normalize);
+    /*
     const symbol2 = 'AAPL';
     const rawData2 = await getData(symbol2, false);
-
-    let trainingData = rawData.map(normalize);
     let moreTraining = rawData2.map(normalize);
     const bigTrain = [...trainingData.slice(0, trainingData.length - 252), ...moreTraining];
     console.log(bigTrain)
+    */
 
-    const net = new brain.NeuralNetwork({ hiddenLayers: [14, 14, 14] })
+    const net = new brain.NeuralNetwork({ hiddenLayers: [14, 14] })
 
     content += '<p>Training...</p>';
-    net.train(bigTrain, {
+    net.train(trainingData.slice(0, trainingData.length - 252), {
       iterations: 20000
     });
 
@@ -163,26 +164,32 @@ const main = async () => {
       const res = net.run(trainingData[i].input);
       const truth = Math.round(res) === trainingData[i].output[0];
       results.push(truth);
+      const investment = value > 2000 ? value * 0.75 : value;
 
       if (truth) {
-        value = (value - 1000) + (1000 * (1 + Math.abs(rawData[i].changePercent / 100)));
-        console.log(`Gain of ${(1000 * Math.abs(rawData[i].changePercent / 100)).toFixed(2)} -> ${value}`);
+        value = (value - investment) + (investment * (1 + Math.abs(rawData[i].changePercent / 100)));
+        console.log(`Gain of ${(investment * Math.abs(rawData[i].changePercent / 100)).toFixed(2)} -> ${value}`);
       }
       else {
-        value = (value - 1000) + (1000 * (1 - Math.abs(rawData[i].changePercent / 100)));
-        console.log(`Loss of ${(1000 * -1 * Math.abs(rawData[i].changePercent / 100)).toFixed(2)} -> ${value}`);
+        value = (value - investment) + (investment * (1 - Math.abs(rawData[i].changePercent / 100)));
+        console.log(`Loss of ${(investment * -1 * Math.abs(rawData[i].changePercent / 100)).toFixed(2)} -> ${value}`);
       }
       content += `<div style="height: ${value / 100}px; flex: 1; background: ${truth ? 'green' : 'red'};"></div>`;
 
-      if (Math.abs(trainingData[i].output[0] - res) > 0.05) error += Math.abs(trainingData[i].output[0] - res);
-      if (i === trainingData.length - 1) content += `</div><p>Prediction for ${symbol} to gain on ${rawData[i].label}: ${console.log(trainingData[i].input),Number(res)}</p>`;
+      if (Math.abs(trainingData[i].output[0] - res) > 0.05) {
+        error += Math.abs(trainingData[i].output[0] - res);
+      }
+      if (i === trainingData.length - 1) {
+        content += `</div><p>Prediction for ${symbol} to gain on ${rawData[i].label}: ${Number(res)}</p>`;
+        console.log(trainingData[i].input);
+      }
     }
 
     const correct = results.filter(item => item === true).length;
     content += `<p>Accuracy: <strong>${(100 * correct / results.length).toFixed(0)}%</strong> (${correct} / ${results.length})</p>`;
     content += `<p>Avg. Error: <strong>${(error / results.length).toFixed(5)}%</strong> (${error.toFixed(5)} / ${results.length})</p>`;
     content += `<p>Starting Value of $1000 Over 1 year: <strong style="${value > 0 ? 'color: green' : 'color: red'}">$${value.toFixed(2)}</strong></p>`;
-    content += `<p>Percent Profit: <strong style="${value / 100 > 0 ? 'color: green' : 'color: red'}">${((value / 10) - 100).toFixed(2)}%</strong>`;
+    content += `<p>Percent Profit: <strong style="${value > 1000 ? 'color: green' : 'color: red'}">${((value / 10) - 100).toFixed(2)}%</strong>`;
 
     // Test Input
     // content += `<p>Test Prediction Output: ${net.run({ aboveSAR: true, rsi: 0.4, apo: -7, underSMA50: true })}</p>`
