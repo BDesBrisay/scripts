@@ -3,74 +3,82 @@ const fetch = require('node-fetch');
 const fs = require('fs');
 
 const dataHaul = async (symbol) => {
-  const AVKEY1 = '9RUKGUEQ3Y8VOFG9';
-  const now = new Date();
-  const shortStr = now.getFullYear() + '' + (now.getMonth() + 1) + '' + now.getDate();
-  const dashStr = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
-  const dateStr = dashStr + ' 09:31';
-  const minutes = '09:30';
+  try {
+    const AVKEY1 = '9RUKGUEQ3Y8VOFG9';
+    const now = new Date();
+    const shortStr = now.getFullYear() + '' + (now.getMonth() + 1) + '' + now.getDate();
+    const dashStr = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
+    const dateStr = dashStr + ' 09:31';
+    const minutes = '09:30';
 
-  const daily = await fetch(
-    `https://api.iextrading.com/1.0/stock/${symbol}/chart/date/${shortStr}`, 
-    { method: 'get', headers: { 'Content-Type': 'application/json' } }
-  ).then(res => res.json());
+    const daily = await fetch(
+      `https://api.iextrading.com/1.0/stock/${symbol}/chart/date/${shortStr}`, 
+      { method: 'get', headers: { 'Content-Type': 'application/json' } }
+    ).then(res => res.json());
 
-  const AVSAR = await fetch(
-    `https://www.alphavantage.co/query?function=SAR&symbol=${symbol}&interval=1min&acceleration=0.05&maximum=0.25&apikey=${AVKEY1}`,
-    { method: 'get', headers: { 'Content-Type': 'application/json' } }
-  ).then(res => res.json());
+    const AVSAR = await fetch(
+      `https://www.alphavantage.co/query?function=SAR&symbol=${symbol}&interval=1min&acceleration=0.05&maximum=0.25&apikey=${AVKEY1}`,
+      { method: 'get', headers: { 'Content-Type': 'application/json' } }
+    ).then(res => res.json());
 
-  const AVMACD = await fetch(
-    `https://www.alphavantage.co/query?function=MACD&symbol=${symbol}&interval=1min&series_type=open&outputsize=full&apikey=${AVKEY1}`,
-    { method: 'get', headers: { 'Content-Type': 'application/json' } }
-  ).then(res => res.json());
+    const AVMACD = await fetch(
+      `https://www.alphavantage.co/query?function=MACD&symbol=${symbol}&interval=1min&series_type=open&outputsize=full&apikey=${AVKEY1}`,
+      { method: 'get', headers: { 'Content-Type': 'application/json' } }
+    ).then(res => res.json());
 
-  const AVRSI = await fetch(
-    `https://www.alphavantage.co/query?function=RSI&symbol=${symbol}&interval=1min&time_period=10&series_type=open&outputsize=full&apikey=${AVKEY1}`,
-    { method: 'get', headers: { 'Content-Type': 'application/json' } }
-  ).then(res => res.json());
+    const AVRSI = await fetch(
+      `https://www.alphavantage.co/query?function=RSI&symbol=${symbol}&interval=1min&time_period=10&series_type=open&outputsize=full&apikey=${AVKEY1}`,
+      { method: 'get', headers: { 'Content-Type': 'application/json' } }
+    ).then(res => res.json());
 
-  const AVAPO = await fetch(
-    `https://www.alphavantage.co/query?function=APO&symbol=${symbol}&interval=1min&series_type=close&fastperiod=10&outputsize=full&matype=1&apikey=${AVKEY1}`,
-    { method: 'get', headers: { 'Content-Type': 'application/json' } }
-  ).then(res => res.json());
-  
-  const AVSMA100 = await fetch(
-    `https://www.alphavantage.co/query?function=SMA&symbol=${symbol}&interval=1min&time_period=100&series_type=open&outputsize=full&apikey=${AVKEY1}`,
-    { method: 'get', headers: { 'Content-Type': 'application/json' } }
-  ).then(res => res.json());
-  
+    const AVAPO = await fetch(
+      `https://www.alphavantage.co/query?function=APO&symbol=${symbol}&interval=1min&series_type=close&fastperiod=10&outputsize=full&matype=1&apikey=${AVKEY1}`,
+      { method: 'get', headers: { 'Content-Type': 'application/json' } }
+    ).then(res => res.json());
+    
+    const AVSMA100 = await fetch(
+      `https://www.alphavantage.co/query?function=SMA&symbol=${symbol}&interval=1min&time_period=100&series_type=open&outputsize=full&apikey=${AVKEY1}`,
+      { method: 'get', headers: { 'Content-Type': 'application/json' } }
+    ).then(res => res.json());
+    
 
-  let item = {};
-  let open = daily.filter(item => item.minute == minutes);
+    let item = {};
+    let open = daily.filter(item => item.minute == minutes);
 
-  if (open) {
-    item = {...open[0]}
+    if (open) {
+      item = {...open[0]}
+    }
+    if (AVSAR['Technical Analysis: SAR'] && AVSAR['Technical Analysis: SAR'][dateStr]) {
+      item.sar = Number(AVSAR['Technical Analysis: SAR'][dateStr]['SAR']);
+    }
+    if (AVMACD['Technical Analysis: MACD'] && AVMACD['Technical Analysis: MACD'][dateStr]) {
+      item.macd = Number(AVMACD['Technical Analysis: MACD'][dateStr]['MACD']);
+    }
+    if (AVRSI['Technical Analysis: RSI'] && AVRSI['Technical Analysis: RSI'][dateStr]) {
+      item.rsi = Number(AVRSI['Technical Analysis: RSI'][dateStr]['RSI']);
+    }
+    if (AVAPO['Technical Analysis: APO'] && AVAPO['Technical Analysis: APO'][dateStr]) {
+      item.apo = Number(AVAPO['Technical Analysis: APO'][dateStr]['APO']);
+    } 
+    if (AVSMA100['Technical Analysis: SMA'] && AVSMA100['Technical Analysis: SMA'][dateStr]) {
+      item.sma100 = Number(AVSMA100['Technical Analysis: SMA'][dateStr]['SMA'])
+    }
+
+    console.log(item)
+
+    if (Object.keys(item).length > 0) {
+      fs.writeFile(
+        `openingData/${symbol}/${dashStr}.js`, 
+        `const ${symbol} = ${JSON.stringify(item)};`, 
+        (e) => { if (e) throw e }
+      )
+    }
+    else {
+      console.log("File write failed due to lack of data")
+    }
   }
-  if (AVSAR['Technical Analysis: SAR'] && AVSAR['Technical Analysis: SAR'][dateStr]) {
-    item.sar = Number(AVSAR['Technical Analysis: SAR'][dateStr]['SAR']);
-  }
-  if (AVMACD['Technical Analysis: MACD'] && AVMACD['Technical Analysis: MACD'][dateStr]) {
-    item.macd = Number(AVMACD['Technical Analysis: MACD'][dateStr]['MACD']);
-  }
-  if (AVRSI['Technical Analysis: RSI'] && AVRSI['Technical Analysis: RSI'][dateStr]) {
-    item.rsi = Number(AVRSI['Technical Analysis: RSI'][dateStr]['RSI']);
-  }
-  if (AVAPO['Technical Analysis: APO'] && AVAPO['Technical Analysis: APO'][dateStr]) {
-    item.apo = Number(AVAPO['Technical Analysis: APO'][dateStr]['APO']);
-  } 
-  if (AVSMA100['Technical Analysis: SMA'] && AVSMA100['Technical Analysis: SMA'][dateStr]) {
-    item.sma100 = Number(AVSMA100['Technical Analysis: SMA'][dateStr]['SMA'])
-  }
-
-  console.log(item)
-
-  if (item !== {}) {
-    fs.writeFile(
-      `openingData/${dashStr}.json`, 
-      JSON.stringify(item), 
-      (e) => { if (e) throw e }
-    )
+  catch (e) { 
+    console.error(e);
   }
 }
 
@@ -82,8 +90,9 @@ const startHaul = () => {
     'SPY',
     'MSFT'
   ]
-  for (let i = 0; i < 5; i++) {
-    setTimeout(dataHaul(symbols[i]), 30000)
+  let round;
+  for (let i = 0; i < 1; i++) {
+    round = setTimeout(() => dataHaul(symbols[4]), 3000)
   }
 }
 
@@ -96,7 +105,6 @@ const job = new CronJob(
 );
 
 job.start()
-
 
 /*
 if (AVMOM['Technical Analysis: MOM'] && AVMOM['Technical Analysis: MOM'][dateStr]) {
