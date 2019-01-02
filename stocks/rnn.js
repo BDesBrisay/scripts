@@ -1,5 +1,33 @@
 'use strict';
 
+
+/*
+const scaleUp = (obj) => ({
+  vwap: obj.vwap,
+  open: obj.open * scale,
+  close: obj.close * scale
+});
+
+const scaleDown = (obj) => ({
+  vwap: obj.vwap,
+  open: obj.open / scale,
+  close: obj.close / scale
+});
+*/
+
+function loadJSON(callback) {   
+  var xobj = new XMLHttpRequest();
+  xobj.overrideMimeType("application/json");
+  xobj.open('GET', 'my_data.json', true); // Replace 'my_data' with the path to your file
+  xobj.onreadystatechange = function () {
+    if (xobj.readyState == 4 && xobj.status == "200") {
+      // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+      callback(xobj.responseText);
+    }
+  };
+  xobj.send(null);  
+}
+
 const formatTime = (s) => {
   var ms = s % 1000;
   s = (s - ms) / 1000;
@@ -18,26 +46,22 @@ const scale = 250;
 const normalize = (obj, test = false) => {
   if (test) {
     return {
-      aboveSAR: obj.open > obj.sar,
-      //diffSAR: (obj.open - obj.sar).toFixed(2),
+      sar: obj.sar / (obj.open * 2),
       macd: obj.macd,
       apo: obj.apo,
-      rsi: Number((obj.rsi / 100).toFixed(2)),
-      aboveSMA100: obj.open > obj.sma100,
-      diffSMA100: Number((obj.open - obj.sma100).toFixed(2)),
+      rsi: obj.rsi / 100,
+      sma100: obj.sma100 / (obj.open * 2),
     }
   }
 
   const gain = obj.close > obj.open ? 1 : 0;
   return { 
-    input: { 
-      aboveSAR: obj.open > obj.sar,
-      //diffSAR: (obj.open - obj.sar).toFixed(2),
+    input: [{ 
+      sar: obj.open - obj.sar,
       macd: obj.macd,
       apo: obj.apo,
-      rsi: Number((obj.rsi / 100).toFixed(2)),
-      aboveSMA100: obj.open > obj.sma100,
-      diffSMA100: Number((obj.open - obj.sma100).toFixed(2)),
+      rsi: obj.rsi / 100,
+      sma100: obj.open - obj.sma100,
       /*aboveSAR: obj.sar / (obj.open * 2),
       macd: obj.macd,
       apo: obj.apo,
@@ -46,8 +70,7 @@ const normalize = (obj, test = false) => {
       // belowSMA100: obj.open < obj.sma100,
       // belowSMA200: obj.open < obj.sma200,
       // mom: obj.mom,
-      // open: obj.open / scale, // previous close? 
-    }, 
+    }], 
     output: [ gain ]
   }
 }
@@ -61,39 +84,33 @@ const main = async () => {
         <h1>Predicting gain at close using psar, macd, rsi, apo, and moving averages</h1>
     `;
 
-    const symbol = 'SPY';
-    const aaplData = JSON.parse(AAPL5y);
-    const googData = JSON.parse(GOOG5y);
-    const msftData = JSON.parse(MSFT5y);
-    const spyData = JSON.parse(SPY5y);
-    const twtrData = JSON.parse(TWTR5y);
+    const symbol = 'AAPL';
+    const aaplData = JSON.parse(AAPL2y);
+    // const googData = JSON.parse(GOOG2y);
 
     const initData = [
-      ...aaplData,
-      ...googData,
-      ...msftData,
-      ...twtrData,
-      ...spyData
+      // ...googData,
+      ...aaplData
     ]
 
     const allData = initData.map((item, i) => normalize(item, false));
 
-    const net = new brain.NeuralNetwork({ hiddenLayers: [12] })
+    const net = new brain.recurrent.RNN({ hiddenLayers: [10] });
 
     content += '<p>Training...</p>';
     net.train(allData.slice(0, allData.length - 252), {
-      iterations: 20000
+      iterations: 10000
     });
 
     content += '<p>Backtesting over 1 year...</p><div style="display:flex; align-items: flex-end">';
     const results = [];
     let error = 0;
-    let value = 10000;
+    let value = 1000;
     for (let i = allData.length - 252; i < allData.length; i++) {
       const res = net.run(allData[i].input);
       const truth = Math.round(res) === allData[i].output[0];
       results.push(truth);
-      const investment = value > 20000 ? value * 0.75 : value;
+      const investment = value > 2000 ? value * 0.75 : value;
 
       if (truth) {
         value = (value - investment) + (investment * (1 + Math.abs(initData[i].changePercent / 100)));
@@ -103,7 +120,7 @@ const main = async () => {
         value = (value - investment) + (investment * (1 - Math.abs(initData[i].changePercent / 100)));
         console.log(`Loss of ${(investment * -1 * Math.abs(initData[i].changePercent / 100)).toFixed(2)} -> ${value}`);
       }
-      content += `<div style="height: ${value / 500}px; flex: 1; background: ${truth ? 'green' : 'red'};"></div>`;
+      content += `<div style="height: ${value / 100}px; flex: 1; background: ${truth ? 'green' : 'red'};"></div>`;
 
       if (Math.abs(allData[i].output[0] - res) > 0.05) {
         error += Math.abs(allData[i].output[0] - res);
@@ -117,22 +134,16 @@ const main = async () => {
     const correct = results.filter(item => item === true).length;
     content += `<p>Accuracy: <strong>${(100 * correct / results.length).toFixed(0)}%</strong> (${correct} / ${results.length})</p>`;
     content += `<p>Avg. Error: <strong>${(error / results.length).toFixed(5)}%</strong> (${error.toFixed(5)} / ${results.length})</p>`;
-    content += `<p>Starting Value of $10000 Over 1 year: <strong style="${value > 10000 ? 'color: green' : 'color: red'}">$${value.toFixed(2)}</strong></p>`;
-    content += `<p>Percent Profit: <strong style="${value > 10000 ? 'color: green' : 'color: red'}">${((value / 100) - 100).toFixed(2)}%</strong>`;
+    content += `<p>Starting Value of $1000 Over 1 year: <strong style="${value > 0 ? 'color: green' : 'color: red'}">$${value.toFixed(2)}</strong></p>`;
+    content += `<p>Percent Profit: <strong style="${value > 1000 ? 'color: green' : 'color: red'}">${((value / 10) - 100).toFixed(2)}%</strong>`;
 
-    let inputs = {
-      AAPL,
-      GOOG,
-      MSFT,
-      SPY,
-      TWTR
-    }
+    let aapl = normalize(AAPL, true);
+    //let goog = normalize(GOOG, true);
+    let msft, twtr, spy;
+    console.log('AAPL: ', aapl);
     
     // Test Input
-    Object.keys(inputs).map((item, i) => {
-      console.log(i, item, inputs[item], normalize(inputs[item], true))
-      content += `<p>Test Prediction Output for ${item}: ${net.run(normalize(inputs[item], true))}</p>`;
-    });
+    content += `<p>Test Prediction Output for AAPL: ${net.run(aapl)}</p>`;
     //content += `<p>Test Prediction Output for GOOG: ${net.run(goog)}</p>`;
 
     content += '</div>';
@@ -144,13 +155,5 @@ const main = async () => {
   const diff = Date.now() - start;
   console.log('Date: ', formatTime(diff));
 }
-
-/*
-const net = new brain.recurrent.LSTMTimeStep({
-  inputSize: 5,
-  hiddenLayers: [8, 8],
-  outputSize: 5
-});
-*/
 
 main();

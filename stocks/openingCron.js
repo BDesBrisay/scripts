@@ -91,8 +91,9 @@ const startHaul = () => {
     'MSFT'
   ]
   let round;
-  for (let i = 0; i < 1; i++) {
-    round = setTimeout(() => dataHaul(symbols[4]), 3000)
+  for (let i = 0; i < 5; i++) {
+    round = setTimeout(() => dataHaul(symbols[i]), 3000)
+    console.log(symbols[i]);
   }
 }
 
@@ -104,7 +105,7 @@ const job = new CronJob(
   'America/Los_Angeles'
 );
 
-job.start()
+job.start();
 
 /*
 if (AVMOM['Technical Analysis: MOM'] && AVMOM['Technical Analysis: MOM'][dateStr]) {

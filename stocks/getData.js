@@ -6,34 +6,34 @@ const AVKEY2 = 'E6BKK6T99RPFV58P';
 
 const getData = async (symbol) => {
   try {  
-    const period = '5y';
+    const period = '2y';
     const IEX = await fetch(
       `https://api.iextrading.com/1.0/stock/${symbol}/chart/${period}`, 
       { method: 'get', headers: { 'Content-Type': 'application/json' } }
     ).then(res => res.json());
     
     const AVSAR = await fetch(
-      `https://www.alphavantage.co/query?function=SAR&symbol=${symbol}&interval=daily&acceleration=0.05&maximum=0.25&apikey=${AVKEY1}`,
+      `https://www.alphavantage.co/query?function=SAR&symbol=${symbol}&interval=daily&acceleration=0.05&maximum=0.25&apikey=${AVKEY2}`,
       { method: 'get', headers: { 'Content-Type': 'application/json' } }
     ).then(res => res.json());
 
     const AVMACD = await fetch(
-      `https://www.alphavantage.co/query?function=MACD&symbol=${symbol}&interval=daily&series_type=open&apikey=${AVKEY1}`,
+      `https://www.alphavantage.co/query?function=MACD&symbol=${symbol}&interval=daily&series_type=open&apikey=${AVKEY2}`,
       { method: 'get', headers: { 'Content-Type': 'application/json' } }
     ).then(res => res.json());
 
     const AVSMA100 = await fetch(
-      `https://www.alphavantage.co/query?function=SMA&symbol=${symbol}&interval=daily&time_period=100&series_type=open&apikey=${AVKEY1}`,
+      `https://www.alphavantage.co/query?function=SMA&symbol=${symbol}&interval=daily&time_period=100&series_type=open&apikey=${AVKEY2}`,
       { method: 'get', headers: { 'Content-Type': 'application/json' } }
     ).then(res => res.json());
 
     const AVRSI = await fetch(
-      `https://www.alphavantage.co/query?function=RSI&symbol=${symbol}&interval=daily&time_period=10&series_type=open&apikey=${AVKEY1}`,
+      `https://www.alphavantage.co/query?function=RSI&symbol=${symbol}&interval=daily&time_period=10&series_type=open&apikey=${AVKEY2}`,
       { method: 'get', headers: { 'Content-Type': 'application/json' } }
     ).then(res => res.json());
 
     const AVAPO = await fetch(
-      `https://www.alphavantage.co/query?function=APO&symbol=${symbol}&interval=daily&series_type=close&fastperiod=10&matype=1&apikey=${AVKEY1}`,
+      `https://www.alphavantage.co/query?function=APO&symbol=${symbol}&interval=daily&series_type=close&fastperiod=10&matype=1&apikey=${AVKEY2}`,
       { method: 'get', headers: { 'Content-Type': 'application/json' } }
     ).then(res => res.json());
 /*
@@ -113,7 +113,7 @@ const dataMain = () => {
     'SPY',
     'MSFT'
   ]
-  const haul = setTimeout(() => getData(symbols[1]), 3000);
+  const haul = setTimeout(() => getData(symbols[4]), 3000);
 }
 
 dataMain()
