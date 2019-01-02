@@ -19,7 +19,7 @@ const normalize = (obj, test = false) => {
   if (test) {
     return {
       aboveSAR: obj.open > obj.sar,
-      //diffSAR: (obj.open - obj.sar).toFixed(2),
+      diffSAR: Number((obj.open - obj.sar).toFixed(2)),
       macd: obj.macd,
       apo: obj.apo,
       rsi: Number((obj.rsi / 100).toFixed(2)),
@@ -32,7 +32,7 @@ const normalize = (obj, test = false) => {
   return { 
     input: { 
       aboveSAR: obj.open > obj.sar,
-      //diffSAR: (obj.open - obj.sar).toFixed(2),
+      diffSAR: Number((obj.open - obj.sar).toFixed(2)),
       macd: obj.macd,
       apo: obj.apo,
       rsi: Number((obj.rsi / 100).toFixed(2)),
@@ -77,19 +77,27 @@ const main = async () => {
     ]
 
     const allData = initData.map((item, i) => normalize(item, false));
+    console.log(allData, formatTime(Date.now() - start));
 
-    const net = new brain.NeuralNetwork({ hiddenLayers: [12] })
+    const net = new brain.NeuralNetwork({ hiddenLayers: [12] });
 
+    let iter = 1000;
     content += '<p>Training...</p>';
-    net.train(allData.slice(0, allData.length - 252), {
-      iterations: 20000
+    net.train(allData.slice(0, allData.length - 504), {
+      iterations: 20000,
+      callback: () => {
+        console.log(iter, formatTime(Date.now() - start)); 
+        iter += 1000;
+      },
+      callbackPeriod: 1000,
     });
 
     content += '<p>Backtesting over 1 year...</p><div style="display:flex; align-items: flex-end">';
     const results = [];
     let error = 0;
     let value = 10000;
-    for (let i = allData.length - 252; i < allData.length; i++) {
+    for (let i = allData.length - 504; i < allData.length; i++) {
+      console.log(i - allData.length, '/', 504)
       const res = net.run(allData[i].input);
       const truth = Math.round(res) === allData[i].output[0];
       results.push(truth);
@@ -113,6 +121,8 @@ const main = async () => {
         console.log(initData[i].label, ': ', allData[i].input);
       }
     }
+
+    console.log(formatTime(Date.now() - start));
 
     const correct = results.filter(item => item === true).length;
     content += `<p>Accuracy: <strong>${(100 * correct / results.length).toFixed(0)}%</strong> (${correct} / ${results.length})</p>`;
