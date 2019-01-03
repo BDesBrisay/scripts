@@ -2,14 +2,20 @@ const CronJob = require('cron').CronJob;
 const fetch = require('node-fetch');
 const fs = require('fs');
 
+const fixDate = (val) => {
+  if (val <= 9) val = '0' + val;
+  return val;
+};
+
 const dataHaul = async (symbol) => {
   try {
     const AVKEY1 = '9RUKGUEQ3Y8VOFG9';
-    const now = new Date();
-    const shortStr = now.getFullYear() + '' + (now.getMonth() + 1) + '' + now.getDate();
-    const dashStr = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
+    const now = new Date(2019, 00, 02);
+    const shortStr = now.getFullYear() + '' + fixDate(now.getMonth() + 1) + '' + fixDate(now.getDate());
+    const dashStr = now.getFullYear() + '-' + fixDate(now.getMonth() + 1) + '-' + fixDate(now.getDate());
     const dateStr = dashStr + ' 09:31';
     const minutes = '09:30';
+    const closeMin = '15:59';
 
     const daily = await fetch(
       `https://api.iextrading.com/1.0/stock/${symbol}/chart/date/${shortStr}`, 
@@ -44,9 +50,13 @@ const dataHaul = async (symbol) => {
 
     let item = {};
     let open = daily.filter(item => item.minute == minutes);
+    let close = daily.filter(item => item.minute == closeMin);
 
     if (open) {
-      item = {...open[0]}
+      item = {
+        ...open[0],
+        close: close[0].close
+      }
     }
     if (AVSAR['Technical Analysis: SAR'] && AVSAR['Technical Analysis: SAR'][dateStr]) {
       item.sar = Number(AVSAR['Technical Analysis: SAR'][dateStr]['SAR']);
@@ -64,7 +74,7 @@ const dataHaul = async (symbol) => {
       item.sma100 = Number(AVSMA100['Technical Analysis: SMA'][dateStr]['SMA'])
     }
 
-    console.log(item)
+    console.log(item, shortStr)
 
     if (Object.keys(item).length > 0) {
       fs.writeFile(
@@ -82,7 +92,7 @@ const dataHaul = async (symbol) => {
   }
 }
 
-const startHaul = () => {
+const startHaul = async () => {
   const symbols = [
     'AAPL',
     'GOOG',
@@ -91,9 +101,8 @@ const startHaul = () => {
     'MSFT'
   ]
   let round;
-  for (let i = 0; i < 5; i++) {
-    round = setTimeout(() => dataHaul(symbols[i]), 3000)
-    console.log(symbols[i]);
+  for (let i = 0; i < 1; i++) {
+    round = await setTimeout(() => dataHaul(symbols[4]), 1000);
   }
 }
 
