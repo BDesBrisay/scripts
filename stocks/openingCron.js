@@ -10,7 +10,7 @@ const fixDate = (val) => {
 const dataHaul = async (symbol) => {
   try {
     const AVKEY1 = '9RUKGUEQ3Y8VOFG9';
-    const now = new Date(2019, 00, 02);
+    const now = new Date(2019, 00, 03);
     const shortStr = now.getFullYear() + '' + fixDate(now.getMonth() + 1) + '' + fixDate(now.getDate());
     const dashStr = now.getFullYear() + '-' + fixDate(now.getMonth() + 1) + '-' + fixDate(now.getDate());
     const dateStr = dashStr + ' 09:31';
@@ -92,7 +92,7 @@ const dataHaul = async (symbol) => {
   }
 }
 
-const startHaul = async () => {
+const startHaul = () => {
   const symbols = [
     'AAPL',
     'GOOG',
@@ -102,7 +102,7 @@ const startHaul = async () => {
   ]
   let round;
   for (let i = 0; i < 1; i++) {
-    round = await setTimeout(() => dataHaul(symbols[4]), 1000);
+    round = setTimeout(() => dataHaul(symbols[4]), 3000);
   }
 }
 
