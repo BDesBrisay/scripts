@@ -15,14 +15,21 @@ function getColor() {
   return color;
 };
 
-function main() {
+function randomColor() {
   const color = getColor();
 
   const root = document.querySelector('body');
   const p = document.querySelector('#color');
+  const h1 = document.querySelector('#name');
 
   root.style.backgroundColor = color;
-  p.textContent = color;
+  if (p) {
+    p.textContent = color;
+    p.style.color = getInverse(color);
+  }
+  else if (h1) {
+    h1.style.color = color;
+  }
 };
 
-main();
+randomColor();

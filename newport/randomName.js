@@ -29,10 +29,12 @@ function getName() {
   return name;
 };
 
-function main() {
+function randomName() {
   const name = getName();
   const p = document.querySelector('#name');
-  p.textContent = name;
+  if (p) p.textContent = name;
+
+  randomColor();
 };
 
-main();
+randomName();
