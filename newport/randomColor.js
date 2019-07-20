@@ -22,7 +22,7 @@ function main() {
   const p = document.querySelector('#color');
 
   root.style.backgroundColor = color;
-  p.innerHTML = color;
+  p.textContent = color;
 };
 
 main();
