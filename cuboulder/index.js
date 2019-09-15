@@ -1,5 +1,6 @@
 'user strict'
 
+const fs = require('fs');
 const puppeteer = require('puppeteer');
 const { twitterCreds } = require('../.secret.js');
 
@@ -12,13 +13,16 @@ function extractItem() {
   let texts = [];
 
   for(item of items) {
-    console.log(item)
     texts.push(item.innerText);
   }
 
-  console.log(items)
-  console.log(texts)
   return texts;
+}
+
+function formatItems(items) {
+  let results = items.map((item) => item.match(regex) ? item.match(regex)[0] : '')
+  results = results.map((item) => item.trim());
+  return new Set(results);
 }
 
 async function scrollToBottom(
@@ -32,13 +36,31 @@ async function scrollToBottom(
     let previousHeight;
     let count = 0;
     while (count < itemTargetCount) {
-      count++;
+      const newItems = await page.evaluate(extractItem);
+      const fileItems = formatItems(newItems);
+      items = [...items, ...fileItems];
+      const set = new Set(items)
+      
+      // add individual "new" items to end of file
+      for (item of fileItems) {
+        fs.appendFile('results.txt', `${item}\n`, (e) => {
+          if (e) throw e;
+        });
+      }
+
+      // record all items up to this point
+      fs.writeFile('set.txt', JSON.stringify(Array.from(set)), (e) => {
+        if (e) throw e;
+      });
+
+      console.log(count, set.size)
+
       previousHeight = await page.evaluate('document.body.scrollHeight');
       await page.evaluate('window.scrollTo(0, document.body.scrollHeight)');
       await page.waitForFunction(`document.body.scrollHeight > ${previousHeight}`);
       await page.waitFor(scrollDelay);
+      count++;
     }
-    items = await page.evaluate(extractItem);
   } catch(e) { }
   return items;
 }
@@ -53,7 +75,7 @@ async function scrollToBottom(
 
   console.log('1')
 
-  await page.waitFor(3000);
+  await page.waitFor(1000);
   await page.type('input.js-password-field', pass, { delay: 10 });
 
   console.log('2')
@@ -62,15 +84,10 @@ async function scrollToBottom(
 
   console.log("Logged in")
 
-  const items = await scrollToBottom(page, extractItem, 10);
+  const items = await scrollToBottom(page, extractItem, 4000);
 
-  console.log(items)
-
-  let results = items.map((item) => item.match(regex)[0])
-  results = results.map((item) => item.trim())
-
-  console.log(results.length)
+  console.log("RESULTS: ", items.length)
 
   await page.waitFor(3000);
-  // await browser.close();
+  await browser.close();
 })()
