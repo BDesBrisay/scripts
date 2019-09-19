@@ -89,20 +89,7 @@ async function scrollFollowers(page) {
   console.log('Scrolling now')
 
   await scrollFollowers(page)
-  
-  // await page.evaluate(scrollFollowers);
-  
-  /*
-  const items = await scrollToBottom(page, extractItem, 1);
 
-  console.log(items)
-
-  let results = items.map((item) => item.match(regex)[0])
-  results = results.map((item) => item.trim())
-
-  console.log(results.length)
-
-  */
   // await page.waitFor(3000);
   // await browser.close();
 })()
