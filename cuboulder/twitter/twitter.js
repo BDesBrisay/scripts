@@ -1,7 +1,7 @@
 'user strict'
 
 const puppeteer = require('puppeteer');
-const { twitterCreds } = require('../.secret.js');
+const { twitterCreds } = require('../../.secret.js');
 
 const URL = 'https://twitter.com/CUBoulder/followers';
 const { username, pass } = twitterCreds;

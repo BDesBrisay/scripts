@@ -1,114 +1,42 @@
 'user strict'
 
 const puppeteer = require('puppeteer');
+const { promisify } = require('util');
+const fs = require('fs')
+
+const appendFileAsync = promisify(fs.appendFile);
+
 const { instagramCreds } = require('../.secret.js');
-
-const URL = 'https://www.instagram.com/accounts/login/?next=%2Fcuboulder%2Ffollowers%2F&source=followed_by_list';
 const { username, pass } = instagramCreds;
-const regex = /.*\s*\n/g;
-
-
-const waitMs = (ms) => {
-  const start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > ms){
-      break;
-    }
-  }
-}
-
-const promisify = (f) => {
-  return function (...args) { // return a wrapper-function
-    return new Promise((resolve, reject) => {
-      function callback(err, result) { // our custom callback for f
-        if (err) {
-          return reject(err);
-        } else {
-          resolve(result);
-        }
-      }
-
-      args.push(callback); // append our custom callback to the end of f arguments
-
-      f.call(this, ...args); // call the original function
-    });
-  };
-};
-
-function extractItem() {
-  const items = document.querySelectorAll('main > div > div > div > div > div section > div > div > div > div');
-  let texts = [];
-
-  for(item of items) {
-    console.log(item)
-    texts.push(item.innerText);
-  }
-
-  console.log(items)
-  console.log(texts)
-  return texts;
-}
-
-async function scrollToBottom(
-  page,
-  extractItem,
-  itemTargetCount,
-  scrollDelay = 1000,
-) {
-  let items = [];
-  try {
-    let previousHeight;
-    let count = 0;
-    while (count < itemTargetCount) {
-      count++;
-      previousHeight = await page.evaluate('document.body.scrollHeight');
-      await page.evaluate('window.scrollTo(0, document.body.scrollHeight)');
-      await page.waitForFunction(`document.body.scrollHeight > ${previousHeight}`);
-      await page.waitFor(scrollDelay);
-    }
-    items = await page.evaluate(extractItem);
-  } catch(e) { }
-  return items;
-}
+const URL = 'https://www.instagram.com/accounts/login/?next=%2Fcuboulder%2Ffollowers%2F&source=followed_by_list';
+const DATA_FILE_PATH = './followers.txt';
 
 async function scrollDiv() {
   const container = document.querySelector('div[role="dialog"] > .isgrP');
 
   const height = container.scrollHeight;
 
-  console.log(height)
-
   container.scrollTo({
     top: height,
     left: 0,
     behavior: 'smooth'
   })
-  /*
-  if (count === 0) {
-    container.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    })
-  }
-  */
+
   return height;
 }
 
 async function scrollFollowers(page) {
   count = 0;
 
-  while (count < 5) {
+  // 78031 total follower / 12 items each time = 6502
+
+  while (count < 2) {
     const scrolled = await page.evaluate(scrollDiv);
     console.log('SCrolled: ', count, scrolled)
 
-    await page.waitFor(2000);
+    await page.waitFor(1000);
     count++;
   }
-}
-
-async function interceptFollowers(page) {
-  console.log('asdf')
 }
 
 (async () => {
@@ -139,13 +67,16 @@ async function interceptFollowers(page) {
     try {
       const url = await res.url();
       if (url.match(/https:\/\/www.instagram.com\/graphql\/query\/\?query_hash=*/g)) {
-        console.log('MATCHED')
         const json = await res.json();
-        // const output = generateOutput({ url, rid, data: json });
         console.log(json);
         const { data: { user: { edge_followed_by } } } = json;
-        console.log(JSON.stringify(edge_followed_by, null, 2))
-        // await appendFileAsync(DATA_FILE_PATH, `${JSON.stringify(output)}\n`);
+        console.log(edge_followed_by)
+        if (edge_followed_by) {
+          const edges = edge_followed_by.edges;
+          for (item of edges) {
+            await appendFileAsync(DATA_FILE_PATH, `${JSON.stringify(item.node)}\n`);
+          }
+        }
       }
     }
     catch (error) {
@@ -158,8 +89,6 @@ async function interceptFollowers(page) {
   console.log('Scrolling now')
 
   await scrollFollowers(page)
-
-  // const items = await interceptFollowers(page);
   
   // await page.evaluate(scrollFollowers);
   
@@ -173,7 +102,7 @@ async function interceptFollowers(page) {
 
   console.log(results.length)
 
-  await page.waitFor(3000);
-  // await browser.close();
   */
+  // await page.waitFor(3000);
+  // await browser.close();
 })()
