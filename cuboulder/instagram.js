@@ -30,11 +30,12 @@ async function scrollFollowers(page) {
 
   // 78031 total follower / 12 items each time = 6502
 
-  while (count < 2) {
+  while (count < 6502) {
     const scrolled = await page.evaluate(scrollDiv);
-    console.log('SCrolled: ', count, scrolled)
+    console.log('Scrolled: ', count, scrolled)
 
-    await page.waitFor(1000);
+    const scrollDelay = Math.floor(Math.random() * 3000) + 1000;
+    await page.waitFor(scrollDelay);
     count++;
   }
 }
@@ -68,11 +69,10 @@ async function scrollFollowers(page) {
       const url = await res.url();
       if (url.match(/https:\/\/www.instagram.com\/graphql\/query\/\?query_hash=*/g)) {
         const json = await res.json();
-        console.log(json);
         const { data: { user: { edge_followed_by } } } = json;
-        console.log(edge_followed_by)
         if (edge_followed_by) {
           const edges = edge_followed_by.edges;
+          console.log(edges.length)
           for (item of edges) {
             await appendFileAsync(DATA_FILE_PATH, `${JSON.stringify(item.node)}\n`);
           }
