@@ -63,10 +63,24 @@ async function scrollFollowers(page) {
   console.log('Clicked')
   await page.waitFor(1000);
 
+  await page.setRequestInterception(true);
+  page.on('request', request => {
+    
+    console.log(request)
+    
+    // Override headers
+    const headers = Object.assign({}, request.headers(), {
+      foo: 'bar', // set "foo" header
+      origin: undefined, // remove "origin" header
+    });
+    console.log(headers)
+    // request.continue({headers});
+  });
+  /*
   page.on('response', async (res) => {
     try {
       const url = await res.url();
-      if (url.match(/https:\/\/www.instagram.com\/graphql\/query\/\?query_hash=*/g)) {
+      if (url.match(/https:\/\/www.instagram.com\/graphql\/query\/\?query_hash=* /g)) {
         const json = await res.json();
         console.log(json);
         const { data: { user: { edge_followed_by } } } = json;
@@ -83,12 +97,12 @@ async function scrollFollowers(page) {
       console.error(error);
     }
   });
-
+  */
   console.log('Scrolling in 5s...')
   await page.waitFor(5000)
   console.log('Scrolling now')
 
-  await scrollFollowers(page)
+  // await scrollFollowers(page)
 
   // await page.waitFor(3000);
   // await browser.close();
