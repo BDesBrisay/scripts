@@ -12,13 +12,16 @@ const { username, pass } = googleCreds;
 const URL = 'https://docs.google.com/spreadsheets/d/1dxpVhV6n1bBxkwyh7_8drnENiH2sqIKhYGBBhpF0Fbs/edit#gid=0';
 const DATA_FILE_PATH = './formEmails.txt';
 const LETTERS = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+// const LETTERS = ['a']
 
 async function getAutocomplete() {
   const frame = document.querySelector('iframe[title="Share with others"');
   const doc = frame.contentDocument;
 
-  const acRows = doc.querySelectorAll('div[class=ac-row]');
+  const acRows = doc.querySelectorAll('.ac-row');
   let results = [];
+
+  console.log(acRows)
 
   for (let res of acRows) {
     results.push(res.textContent);
@@ -36,7 +39,7 @@ async function typeLetters(page) {
       await page.waitFor(1000);
       await page.keyboard.type(l1 + l2);
       
-      await page.waitFor(3000);
+      await page.waitFor(2000);
       const ac = await page.evaluate(getAutocomplete);
       
       results = [...results, ...ac];
@@ -80,4 +83,7 @@ async function typeLetters(page) {
   console.log('AFTER');
 
   await typeLetters(page);
+
+  await page.waitFor(3000)
+  await browser.close();
 })()
