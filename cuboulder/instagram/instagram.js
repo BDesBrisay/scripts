@@ -6,7 +6,7 @@ const fs = require('fs')
 
 const appendFileAsync = promisify(fs.appendFile);
 
-const { instagramCreds } = require('../.secret.js');
+const { instagramCreds } = require('../../.secret.js');
 const { username, pass } = instagramCreds;
 const URL = 'https://www.instagram.com/accounts/login/?next=%2Fcuboulder%2Ffollowers%2F&source=followed_by_list';
 const DATA_FILE_PATH = './followers.txt';

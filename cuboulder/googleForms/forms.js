@@ -6,11 +6,12 @@ const fs = require('fs')
 
 const appendFileAsync = promisify(fs.appendFile);
 
-const { googleCreds } = require('../.secret.js');
+const { googleCreds } = require('../../.secret.js');
 const { username, pass } = googleCreds;
 
 const URL = 'https://docs.google.com/spreadsheets/d/1dxpVhV6n1bBxkwyh7_8drnENiH2sqIKhYGBBhpF0Fbs/edit#gid=0';
 const DATA_FILE_PATH = './formEmails.txt';
+const ALL_DATA_FILE_PATH = './allFormEmails.txt';
 const LETTERS = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 // const LETTERS = ['a']
 
@@ -35,23 +36,34 @@ async function typeLetters(page) {
   let results = [];
 
   for (let l1 of LETTERS) {
+    await page.waitFor(1000);
+    await page.keyboard.type(l1);
     for (let l2 of LETTERS) {
       await page.waitFor(1000);
-      await page.keyboard.type(l1 + l2);
+      await page.keyboard.type(l2);
+      for (let l3 of LETTERS) {
+        await page.waitFor(1000);
+        await page.keyboard.type(l3);
       
-      await page.waitFor(2000);
-      const ac = await page.evaluate(getAutocomplete);
-      
-      results = [...results, ...ac];
-      console.log(results.length);
+        await page.waitFor(1000);
+        const ac = await page.evaluate(getAutocomplete);
 
-      await page.keyboard.press('Backspace');
+        for (let item of ac) {
+          await appendFileAsync(DATA_FILE_PATH, `${JSON.stringify(item)}\n`);
+        }
+        
+        results = [...results, ...ac];
+        console.log(results.length);
+
+        await page.keyboard.press('Backspace');
+      }
       await page.keyboard.press('Backspace');
     }
+    await page.keyboard.press('Backspace');
   }
   
   for (let item of results) {
-    await appendFileAsync(DATA_FILE_PATH, `${JSON.stringify(item)}\n`);
+    await appendFileAsync(ALL_DATA_FILE_PATH, `${JSON.stringify(item)}\n`);
   }
 }
 
