@@ -10,8 +10,8 @@ const { googleCreds } = require('../../.secret.js');
 const { username, pass } = googleCreds;
 
 const URL = 'https://docs.google.com/spreadsheets/d/1dxpVhV6n1bBxkwyh7_8drnENiH2sqIKhYGBBhpF0Fbs/edit#gid=0';
-const DATA_FILE_PATH = './formEmails.txt';
-const ALL_DATA_FILE_PATH = './allFormEmails.txt';
+const DATA_FILE_PATH = './formEmails-3letters.txt';
+const ALL_DATA_FILE_PATH = './allFormEmails-3letters.txt';
 const LETTERS = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 // const LETTERS = ['a']
 
@@ -36,13 +36,10 @@ async function typeLetters(page) {
   let results = [];
 
   for (let l1 of LETTERS) {
-    await page.waitFor(1000);
     await page.keyboard.type(l1);
     for (let l2 of LETTERS) {
-      await page.waitFor(1000);
       await page.keyboard.type(l2);
       for (let l3 of LETTERS) {
-        await page.waitFor(1000);
         await page.keyboard.type(l3);
       
         await page.waitFor(1000);
