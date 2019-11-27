@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Avenir Next, Avenir, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  background: rgba(0,0,0,0.8);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 0 48px;
+  box-sizing: border-box;
+  height: 80px;
+  z-index: 2;
+}
+header > h1 {
+  margin-right: auto;
+  color: white;
+  font-style: italic;
+  font-size: 30px;
+}
+.link {
+  font-weight: bold;
+  margin: 0 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+.bg {
+  position: relative;
+}
+.background {
+  height: calc(100vh - 90px);
+  width: 100vw;
+  object-fit: cover;
+  margin: 0 0 -6px;
+}
+.bgText {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 30vh 12vw 0;
+  box-sizing: border-box;
+  color: white;
+  font-size: 24px;
+  background: linear-gradient(90deg, #000d, #000a, #0008, transparent);
+  text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+}
+.bgText > strong {
+  font-size: 48px;
+  line-height: 100px;
+}
+.products {
+  text-decoration: none;
+  font-size: 16px;
+  background: red;
+  color: white;
+  font-weight: normal;  
+  padding: 10px 26px;
+  box-sizing: border-box;
+  text-shadow: none;
+  margin: 12px 0;
+  display: inline-block;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  background: rgba(0,0,0,0.9);
+  padding: 64px 24px;
+  box-sizing: border-box;
+  color: white;
+  text-align: center;
+}
+.sectionImage {
+  height: 300px;
+  width: 100vw;
+  object-fit: cover;
+  margin: 0 0 -6px;
+}
+.sectionHeader {
+  color: inherit;
+  width: 100%;
+  max-width: 840px;
+  font-size: 24px;
+  line-height: 42px;
+}
+
+.section:nth-child(4) {
+  background: #222;
+}
+.section:nth-child(4) {
+  background: white;
+  color: #345;
+}
+.section:nth-child(6) {
+  background: #222;
+}
+.section:nth-child(8) {
+  background: white;
+  color: #345;
+}
+.section:nth-child(10) {
+  background: #333;
+}
+.section:nth-child(11) {
+  background: #222;
+}
