@@ -32,9 +32,15 @@ function getName() {
 function randomName() {
   const name = getName();
   const p = document.querySelector('#name');
-  if (p) p.textContent = name;
+  if (p) p.insertAdjacentHTML('afterend', `<span>${name},</span><br/>`);
 
   randomColor();
+
+  return name;
 };
 
-randomName();
+let names = [];
+for (let i = 0; i < 1000; i++) {
+  names.push(randomName());
+}
+console.log(JSON.stringify(names));
