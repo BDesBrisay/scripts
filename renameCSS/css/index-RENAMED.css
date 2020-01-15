@@ -1,0 +1,7 @@
+.index-otherdiv {
+  background: red;
+}
+.index-turtle {
+  background: green;
+  transition: all 0.2s;
+}
