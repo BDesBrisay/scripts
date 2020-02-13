@@ -4,6 +4,7 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const { promisify } = require('util');
 
+const appendFileAsync = promisify(fs.appendFile);
 const writeFileAsync = promisify(fs.writeFile);
 
 const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
@@ -17,8 +18,11 @@ async function main(url, school) {
       const newData = await grabPage(`${url}${i}`, school);
       data = [...data, ...newData];
       console.log(i, data.length);
+      
+      // console.log(i, newData.length);
+      // await appendFileAsync(`${school}.json`, JSON.stringify(newData, null, 2));
 
-      await timeout(Math.random * 1000);
+      await timeout(Math.random * 5000);
     }
 
     console.log(data.length);
@@ -31,7 +35,7 @@ async function main(url, school) {
 
 async function grabPage(url, school) {
   try {
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
 
     const status = await page.goto(url, {
@@ -52,6 +56,7 @@ async function grabPage(url, school) {
           const email = el.querySelector('.email > a');
           const education = el.querySelector('.education');
           const appointed = el.querySelector('.appointed');
+          const image = el.querySelector('div > img');
   
           const res = { name, school };
           if (title) res.title = title.innerText;
@@ -59,6 +64,7 @@ async function grabPage(url, school) {
           if (email) res.email = email.dataset.username + '@' + email.dataset.domain;
           if (education) res.education = education.innerText.replace(/\n/g, ', ');
           if (appointed) res.appointed = appointed.innerText;
+          if (image) res.image = image.src;
   
           return res;
         });
@@ -95,7 +101,58 @@ async function grabPage(url, school) {
 ); */
 
 // dalton
-main(
+/* main(
   'https://www.dalton.org/contact/faculty--staff-directory?letter=',
   'dalton',
-);
+); */
+
+// grace
+main(
+  'https://www.gcschool.org/about-gcs/faculty--staff?letter=',
+  'grace',
+); /*/
+
+// lrei
+/* main(
+  'https://www.lrei.org/our-program/faculty--staff?letter=',
+  'lrei',
+); */
+
+// marymount
+/* main(
+  'https://www.marymountnyc.org/about/faculty/facultystaff-directory?letter=',
+  'maymount',
+); */
+
+// poly
+/* main(
+  'https://www.polyprep.org/about-poly/faculty--staff?letter=',
+  'poly',
+); */
+
+// spence
+/* main(
+  'https://www.spenceschool.org/about-spence/contact-us?letter=',
+  'spence',
+); */
+
+
+
+/*
+// grace
+main(
+  'https://www.marymountnyc.org/about/faculty/facultystaff-directory?letter=',
+  'grace',
+); */
+/*
+// grace
+main(
+  'https://www.marymountnyc.org/about/faculty/facultystaff-directory?letter=',
+  'grace',
+); */
+/*
+// grace
+main(
+  'https://www.marymountnyc.org/about/faculty/facultystaff-directory?letter=',
+  'grace',
+); */
