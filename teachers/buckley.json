@@ -1,0 +1,592 @@
+[
+  {
+    "name": "Emily Albanese",
+    "school": "buckley",
+    "title": "Beginners Teacher",
+    "email": "ealbanese@buckleyschool.org"
+  },
+  {
+    "name": "Shakeer Ali",
+    "school": "buckley",
+    "title": "Maintenance",
+    "email": "sali@buckleyschool.org"
+  },
+  {
+    "name": "Adam Alsamadisi",
+    "school": "buckley",
+    "title": "Computer Teacher and Helpdesk Support",
+    "email": "aalsamadisi@buckleyschool.org"
+  },
+  {
+    "name": "Janice Amato",
+    "school": "buckley",
+    "title": "Beginners Homeroom Teacher",
+    "email": "jamato@buckleyschool.org"
+  },
+  {
+    "name": "William Arnold",
+    "school": "buckley",
+    "title": "Security",
+    "email": "warnold@buckleyschool.org"
+  },
+  {
+    "name": "Nisha Bahri",
+    "school": "buckley",
+    "title": "Class II Homeroom Teacher",
+    "email": "nbahri@buckleyschool.org"
+  },
+  {
+    "name": "Karen Balliett",
+    "school": "buckley",
+    "title": "Class III Homeroom Teacher",
+    "email": "kballiett@buckleyschool.org"
+  },
+  {
+    "name": "Maxwell Banaszak",
+    "school": "buckley",
+    "title": "Class III Assistant Teacher",
+    "email": "mbanaszak@buckleyschool.org"
+  },
+  {
+    "name": "Jenny Barrington",
+    "school": "buckley",
+    "title": "Lower School Mathematics Specialist",
+    "email": "JBarrington@BuckleySchool.org"
+  },
+  {
+    "name": "Erica Bickhart",
+    "school": "buckley",
+    "title": "Special Events Manager & Development Associate",
+    "email": "ebickhart@buckleyschool.org"
+  },
+  {
+    "name": "Michelle Binderow",
+    "school": "buckley",
+    "title": "Lower School Art Teacher",
+    "email": "MBinderow@buckleyschool.org"
+  },
+  {
+    "name": "Christopher Bradshaw",
+    "school": "buckley",
+    "title": "Accompanist",
+    "email": "cbradshaw@buckleyschool.org"
+  },
+  {
+    "name": "Bobby Brahimi",
+    "school": "buckley",
+    "title": "Maintenance",
+    "email": "bbrahimi@buckleyschool.org"
+  },
+  {
+    "name": "Thomas Broderick",
+    "school": "buckley",
+    "title": "Physical Education Teacher, Associate Director of Athletics",
+    "email": "TBroderick@BuckleySchool.org"
+  },
+  {
+    "name": "Paul Byerly",
+    "school": "buckley",
+    "title": "Class I Homeroom Teacher",
+    "email": "PByerly@BuckleySchool.org"
+  },
+  {
+    "name": "Linda Caldwell",
+    "school": "buckley",
+    "title": "Registrar",
+    "email": "lcaldwell@buckleyschool.org"
+  },
+  {
+    "name": "Crystal Colon",
+    "school": "buckley",
+    "title": "Middle & Upper School Science Teacher",
+    "email": "CColon@BuckleySchool.org"
+  },
+  {
+    "name": "Jeannette Corrigan",
+    "school": "buckley",
+    "title": "Assistant to the Headmaster",
+    "email": "jcorrigan@buckleyschool.org"
+  },
+  {
+    "name": "Amanda Cruz Fernandez",
+    "school": "buckley",
+    "title": "Middle School Spanish Teacher, Class IX Spanish Teacher",
+    "email": "acruzfernandez@buckleyschool.org"
+  },
+  {
+    "name": "Kyler Culver",
+    "school": "buckley",
+    "title": "Middle & Upper School Librarian, Academic Technologist",
+    "email": "KCulver@BuckleySchool.org"
+  },
+  {
+    "name": "Parker Denton",
+    "school": "buckley",
+    "title": "Lighting Designer",
+    "email": "pdenton@buckleyschool.org"
+  },
+  {
+    "name": "Andrew Domanico",
+    "school": "buckley",
+    "title": "Physical Education Teacher",
+    "email": "ADomanico@buckleyschool.org"
+  },
+  {
+    "name": "Willie Dominguez",
+    "school": "buckley",
+    "title": "Computer Teacher and Helpdesk Support",
+    "email": "wdominguez@buckleyschool.org"
+  },
+  {
+    "name": "Adam Eggleston",
+    "school": "buckley",
+    "title": "Visual and Performing Arts Dept. Chair",
+    "email": "aeggleston@buckleyschool.org"
+  },
+  {
+    "name": "Allison Eggleston",
+    "school": "buckley",
+    "title": "Lower School Spanish Teacher",
+    "email": "akeggleston@buckleyschool.org"
+  },
+  {
+    "name": "Kate Eicher",
+    "school": "buckley",
+    "title": "Lower School Librarian",
+    "email": "keicher@buckleyschool.org"
+  },
+  {
+    "name": "David Elgart",
+    "school": "buckley",
+    "title": "Associate Director of the Upper School, Class VII Homeroom, Upper School Math Teacher",
+    "email": "DElgart@BuckleySchool.org"
+  },
+  {
+    "name": "Ashley Francis",
+    "school": "buckley",
+    "title": "Class III Homeroom Teacher",
+    "email": "AFrancis@buckleyschool.org"
+  },
+  {
+    "name": "Christian Francis",
+    "school": "buckley",
+    "title": "Lower School Science Teacher",
+    "email": "cfrancis@buckleyschool.org"
+  },
+  {
+    "name": "Kenyatta Francis",
+    "school": "buckley",
+    "title": "Assistant Controller",
+    "email": "kfrancis@buckleyschool.org"
+  },
+  {
+    "name": "Caroline Franklin",
+    "school": "buckley",
+    "title": "Upper School English and History Teacher, Upper School Community Service Coordinator",
+    "email": "CFranklin@BuckleySchool.org"
+  },
+  {
+    "name": "Nicholas Garklavs",
+    "school": "buckley",
+    "title": "Business Office Associate",
+    "email": "NGarklavs@BuckleySchool.org"
+  },
+  {
+    "name": "Dianne Garrett",
+    "school": "buckley",
+    "title": "Middle & Upper School Science Teacher",
+    "email": "dgarrett@buckleyschool.org"
+  },
+  {
+    "name": "Edwin Gonzalez",
+    "school": "buckley",
+    "title": "Technology Manager",
+    "email": "egonzalez@buckleyschool.org"
+  },
+  {
+    "name": "Heidi Gore",
+    "school": "buckley",
+    "title": "Director of Admissions",
+    "email": "hgore@buckleyschool.org"
+  },
+  {
+    "name": "Timothy Gorta",
+    "school": "buckley",
+    "title": "Latin Teacher",
+    "email": "tgorta@buckleyschool.org"
+  },
+  {
+    "name": "Jewan Gosein",
+    "school": "buckley",
+    "title": "Maintenance",
+    "email": "jgosein@buckleyschool.org"
+  },
+  {
+    "name": "Wilfrido Guerron",
+    "school": "buckley",
+    "title": "Stockroom Manager",
+    "email": "WGuerron@BuckleySchool.org"
+  },
+  {
+    "name": "Allison Gurman",
+    "school": "buckley",
+    "title": "Assistant to the Director of Admissions and Assistant to the Director of Lower School",
+    "email": "agurman@buckleyschool.org"
+  },
+  {
+    "name": "Christine Haddad",
+    "school": "buckley",
+    "title": "French Teacher",
+    "email": "chaddad@buckleyschool.org"
+  },
+  {
+    "name": "Madeline Hadley",
+    "school": "buckley",
+    "title": "Development Associate",
+    "email": "mhadley@buckleyschool.org"
+  },
+  {
+    "name": "Peter Harrison",
+    "school": "buckley",
+    "title": "Beginners Assistant Teacher",
+    "email": "pharrison@buckleyschool.org"
+  },
+  {
+    "name": "Dinah Herrity",
+    "school": "buckley",
+    "title": "Beginners Homeroom Teacher",
+    "email": "dherrity@buckleyschool.org"
+  },
+  {
+    "name": "Richard Hollman",
+    "school": "buckley",
+    "title": "Drama Teacher",
+    "email": "RHollman@buckleyschool.org"
+  },
+  {
+    "name": "Nazia Jannat",
+    "school": "buckley",
+    "title": "Beginners Assistant Teacher",
+    "email": "njannat@buckleyschool.org"
+  },
+  {
+    "name": "Alexa Jervis",
+    "school": "buckley",
+    "title": "Latin Teacher",
+    "email": "ajervis@buckleyschool.org"
+  },
+  {
+    "name": "Jonathan Jimenez",
+    "school": "buckley",
+    "title": "Receptionist",
+    "email": "jjimenez@buckleyschool.org"
+  },
+  {
+    "name": "Tara Johnson",
+    "school": "buckley",
+    "title": "Director of Development",
+    "email": "tjohnson@buckleyschool.org"
+  },
+  {
+    "name": "Hetty Kim",
+    "school": "buckley",
+    "title": "Class I Homeroom Teacher",
+    "email": "HKim@buckleyschool.org"
+  },
+  {
+    "name": "Julie King",
+    "school": "buckley",
+    "title": "Director of Educational Technology",
+    "email": "jking@buckleyschool.org"
+  },
+  {
+    "name": "Matthew Kostakis",
+    "school": "buckley",
+    "title": "Spanish Teacher",
+    "email": "mkostakis@buckleyschool.org"
+  },
+  {
+    "name": "Jacquelyn La Torre",
+    "school": "buckley",
+    "title": "Class IV Associate Teacher, Class IV Math Teacher",
+    "email": "jlatorre@buckleyschool.org"
+  },
+  {
+    "name": "Derek Lipscomb",
+    "school": "buckley",
+    "title": "Director of Boomerang; Lower School Reading Teacher",
+    "email": "dlipscomb@buckleyschool.org"
+  },
+  {
+    "name": "Alexandra Lubensky",
+    "school": "buckley",
+    "title": "Class I Assistant Teacher",
+    "email": "alubensky@buckleyschool.org"
+  },
+  {
+    "name": "Marcantoni Macias",
+    "school": "buckley",
+    "title": "Physical Education Teacher",
+    "email": "mmacias@buckleyschool.org"
+  },
+  {
+    "name": "Neil Martinez",
+    "school": "buckley",
+    "title": "Director of Facilities",
+    "email": "nmartinez@buckleyschool.org"
+  },
+  {
+    "name": "Dodie McCartney",
+    "school": "buckley",
+    "title": "Associate Director of the Middle School, Middle School Learning Specialist",
+    "email": "domccartney@buckleyschool.org"
+  },
+  {
+    "name": "Elizabeth McLaughlin",
+    "school": "buckley",
+    "title": "Upper School Learning Specialist, Psychologist for Classes V-IX",
+    "email": "emclaughlin@buckleyschool.org"
+  },
+  {
+    "name": "Robert McMahon",
+    "school": "buckley",
+    "title": "Class IV Homeroom Teacher, Class IX English Teacher",
+    "email": "rmcmahon@buckleyschool.org"
+  },
+  {
+    "name": "Grace Merck",
+    "school": "buckley",
+    "title": "Class II Assistant Teacher",
+    "email": "gmerck@buckleyschool.org"
+  },
+  {
+    "name": "Ashmeen Mohammed",
+    "school": "buckley",
+    "title": "Maintenance",
+    "email": "amohammed@buckleyschool.org"
+  },
+  {
+    "name": "Ramiro Mora",
+    "school": "buckley",
+    "title": "Physical Education Teacher",
+    "email": "RMora@BuckleySchool.org"
+  },
+  {
+    "name": "Colin Morris",
+    "school": "buckley"
+  },
+  {
+    "name": "Margaret Mund",
+    "school": "buckley",
+    "title": "French Teacher",
+    "email": "mmund@buckleyschool.org"
+  },
+  {
+    "name": "Craig Mutzman",
+    "school": "buckley",
+    "title": "Middle School Math & Science Teacher",
+    "email": "cmutzman@buckleyschool.org"
+  },
+  {
+    "name": "Felix Negron",
+    "school": "buckley",
+    "title": "Security",
+    "email": "fnegron@buckleyschool.org"
+  },
+  {
+    "name": "Gregory O'Melia",
+    "school": "buckley",
+    "title": "Headmaster, Secondary School Placement, Leadership and Values Teacher",
+    "email": "JCorrigan@BuckleySchool.org"
+  },
+  {
+    "name": "Cunyet Onaldin",
+    "school": "buckley"
+  },
+  {
+    "name": "Danielle Oster",
+    "school": "buckley",
+    "title": "Lower School Learning Specialist, Psychologist for Beginners - Class IV, Learning Resources Departme",
+    "email": "doster@buckleyschool.org"
+  },
+  {
+    "name": "Mario Pacheco",
+    "school": "buckley",
+    "title": "Security",
+    "email": "mpacheco@buckleyschool.org"
+  },
+  {
+    "name": "Kate Philip",
+    "school": "buckley",
+    "title": "Director of Alumni Relations",
+    "email": "kphilip@buckleyschool.org"
+  },
+  {
+    "name": "Christa Price",
+    "school": "buckley",
+    "title": "Lower School Music Teacher",
+    "email": "CPrice@buckleyschool.org"
+  },
+  {
+    "name": "Ryan Purcell",
+    "school": "buckley",
+    "title": "Class VII Homeroom, History Teacher",
+    "email": "rpurcell@buckleyschool.org"
+  },
+  {
+    "name": "Victoria Regan",
+    "school": "buckley",
+    "title": "Class I Assistant Teacher",
+    "email": "vregan@buckleyschool.org"
+  },
+  {
+    "name": "Sonja Robinson",
+    "school": "buckley",
+    "title": "Director of the Lower School",
+    "email": "SRobinson@BuckleySchool.org"
+  },
+  {
+    "name": "Thomas Robinson",
+    "school": "buckley",
+    "title": "Class II Assistant Teacher",
+    "email": "trobinson@buckleyschool.org"
+  },
+  {
+    "name": "Barbara Roque",
+    "school": "buckley",
+    "title": "Lower School French Teacher, Foreign Languages Department Chair",
+    "email": "broque@buckleyschool.org"
+  },
+  {
+    "name": "Nixon Ruiz",
+    "school": "buckley",
+    "title": "Maintenance",
+    "email": "nruiz@buckleyschool.org"
+  },
+  {
+    "name": "Paul Rung",
+    "school": "buckley",
+    "title": "Security Manager",
+    "email": "prung@buckleyschool.org"
+  },
+  {
+    "name": "Catherine Scorrano",
+    "school": "buckley",
+    "title": "School Nurse",
+    "email": "cscorrano@buckleyschool.org"
+  },
+  {
+    "name": "Blair Scribner",
+    "school": "buckley",
+    "title": "Director of the Middle School, Class VI Homeroom, English",
+    "email": "BScribner@BuckleySchool.org"
+  },
+  {
+    "name": "Victoria Sharma",
+    "school": "buckley",
+    "title": "Class III Assistant Teacher",
+    "email": "vsharma@buckleyschool.org"
+  },
+  {
+    "name": "Stanley Shimkus",
+    "school": "buckley",
+    "title": "Class VIII Homeroom Teacher, Math Teacher",
+    "email": "SShimkus@BuckleySchool.org"
+  },
+  {
+    "name": "Peter Simpson",
+    "school": "buckley",
+    "title": "Director of the Upper School",
+    "email": "psimpson@buckleyschool.org"
+  },
+  {
+    "name": "Eleanor Smith",
+    "school": "buckley",
+    "title": "Associate Director of Communications",
+    "email": "esmith@buckleyschool.org"
+  },
+  {
+    "name": "Frank Stancampiano",
+    "school": "buckley",
+    "title": "Physical Education Teacher",
+    "email": "FStancampiano@buckleyschool.org"
+  },
+  {
+    "name": "Thomas Stanton",
+    "school": "buckley",
+    "title": "Chief Financial Officer",
+    "email": "TStanton@BuckleySchool.org"
+  },
+  {
+    "name": "Eleanor Strumolo",
+    "school": "buckley",
+    "title": "Mathematics Department Chair; Class VI Homeroom Teacher; Middle School Mathematics Teacher",
+    "email": "estrumolo@buckleyschool.org"
+  },
+  {
+    "name": "Will Strumolo",
+    "school": "buckley",
+    "title": "Director of Placement and Communications, English Teacher",
+    "email": "wstrumolo@buckleyschool.org"
+  },
+  {
+    "name": "Alexandra Swann",
+    "school": "buckley",
+    "title": "Class IV Homeroom Teacher",
+    "email": "aswann@buckleyschool.org"
+  },
+  {
+    "name": "Kristina Szeman",
+    "school": "buckley",
+    "title": "Class V Homeroom Teacher, Math and History Teacher",
+    "email": "kszeman@buckleyschool.org"
+  },
+  {
+    "name": "Robin Tewes",
+    "school": "buckley",
+    "title": "Middle & Upper School Art Teacher",
+    "email": "rtewes@buckleyschool.org"
+  },
+  {
+    "name": "Celine Tokat",
+    "school": "buckley",
+    "title": "Beginners Assistant Teacher",
+    "email": "ctokat@buckleyschool.org"
+  },
+  {
+    "name": "John Treleaven",
+    "school": "buckley",
+    "title": "Crafts Teacher",
+    "email": "JTreleaven@buckleyschool.org"
+  },
+  {
+    "name": "Brittany Tuber",
+    "school": "buckley",
+    "title": "Class II Homeroom Teacher",
+    "email": "btuber@buckleyschool.org"
+  },
+  {
+    "name": "Elizabeth Wainwright",
+    "school": "buckley",
+    "title": "Class IX Homeroom Teacher, History and English Teacher, English Department Chair",
+    "email": "EWainwright@BuckleySchool.org"
+  },
+  {
+    "name": "Declan Walsh",
+    "school": "buckley",
+    "title": "Director of Athletics",
+    "email": "dwalsh@buckleyschool.org"
+  },
+  {
+    "name": "Scott Wickham",
+    "school": "buckley",
+    "title": "Class VIII Homeroom Teacher, Physics Teacher, Math Teacher, Science Department Chair",
+    "email": "swickham@buckleyschool.org"
+  },
+  {
+    "name": "Marianne Wilson",
+    "school": "buckley",
+    "title": "Class V Homeroom Teacher",
+    "email": "mwilson@buckleyschool.org"
+  }
+]
