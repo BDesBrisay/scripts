@@ -1,0 +1,726 @@
+[
+  {
+    "name": "Richard Abba",
+    "school": "york",
+    "title": "Director of Technology",
+    "email": "rabba@yorkprep.org",
+    "education": "Columbia University - B.A., Columbia University - M.S.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user_5763963_463.jpg"
+  },
+  {
+    "name": "Christian Abreu",
+    "school": "york",
+    "title": "ASL & Spanish Teacher",
+    "email": "cabreu@yorkprep.org",
+    "education": "Medgar Evers College - B.A., Columbia University, Teacher's College - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980763_4414683_952.JPG"
+  },
+  {
+    "name": "Elizabeth Aiello",
+    "school": "york",
+    "title": "School Counselor",
+    "email": "eaiello@yorkprep.org",
+    "education": "Connecticut College - B.A., Columbia University - M.S.W.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980800_4414720_618.JPG"
+  },
+  {
+    "name": "Patricia Arnao",
+    "school": "york",
+    "title": "Jump Start Teacher",
+    "email": "parnao@yorkprep.org",
+    "education": "San Francisco State University - BA, Hunter College - MS, Ed",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6259467_4692838_857.JPG"
+  },
+  {
+    "name": "John Beich",
+    "school": "york",
+    "title": "Writing Teacher",
+    "email": "jbeich@yorkprep.org",
+    "education": "University of Denver - B.A., Columbia University, Teachers College - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980811_4414731_754.JPG"
+  },
+  {
+    "name": "Emily Borden",
+    "school": "york",
+    "title": "Jump Start & Math Teacher",
+    "email": "eborden@yorkprep.org",
+    "education": "Colgate University - B.A., Hunter College - M.S.Ed.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980813_4414733_444.JPG"
+  },
+  {
+    "name": "Amanda Borelli",
+    "school": "york",
+    "title": "Jump Start & English Teacher",
+    "email": "aborelli@yorkprep.org",
+    "education": "University of Delaware - B.S., St. Thomas Auinas College - MSED",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6059616_4493371_711.JPG"
+  },
+  {
+    "name": "Jordan Brodsky",
+    "school": "york",
+    "title": "Jump Start Teacher",
+    "email": "jbrodsky@yorkprep.org",
+    "education": "Syracuse University - B.S., New York University - M.S.W., Hunter College - M.S. Ed.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980814_4414734_990.JPG"
+  },
+  {
+    "name": "Lesley Brown",
+    "school": "york",
+    "title": "English Teacher",
+    "email": "lbrown@yorkprep.org",
+    "education": "Mount Holyoke College - B.A., Teachers College, Columbia University - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980747_4414667_8.JPG"
+  },
+  {
+    "name": "Brendan Buckley",
+    "school": "york",
+    "title": "Dean, Curriculum & Instruction History Chair",
+    "email": "bbuckley@yorkprep.org",
+    "education": "Harvard University - B.A., Boston University - M. Ed.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980771_4414691_709.JPG"
+  },
+  {
+    "name": "Lane Choplin",
+    "school": "york",
+    "title": "Jump Start & History Teacher",
+    "email": "lchoplin@yorkprep.org",
+    "education": "Wake Forest University - B.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980817_4414737_739.JPG"
+  },
+  {
+    "name": "Jeremy Clarke",
+    "school": "york",
+    "title": "Deputy Headmaster & English Teacher",
+    "email": "jclarke@yorkprep.org",
+    "education": "University of Sydney, Australia - B.A., University of Technology Sydney, Australia - M.A., University of Oxford - M.St.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980748_4414668_746.JPG"
+  },
+  {
+    "name": "Coty Cockrell",
+    "school": "york",
+    "title": "Music Teacher",
+    "email": "ccockrell@yorkprep.org",
+    "education": "Jacksonville State University - B.A., North Carolina Central University - M.M.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6059612_4493367_631.JPG"
+  },
+  {
+    "name": "Christina Cox",
+    "school": "york",
+    "title": "History Teacher",
+    "email": "ccox@yorkprep.org",
+    "education": "University of Virginia - B.A., Columbia University - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980772_4414692_853.JPG"
+  },
+  {
+    "name": "Paul Curran",
+    "school": "york",
+    "title": "Athletic Director and Physical Education Teacher",
+    "email": "pcurran@yorkprep.org",
+    "education": "Leeds Metropolitan University - B.S.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6259559_4692930_30.JPG"
+  },
+  {
+    "name": "Sarah Davis",
+    "school": "york",
+    "title": "English Teacher",
+    "email": "sdavis@yorkprep.org",
+    "education": "University of Delaware - B.A., The Graduate Center, City University of New York - M. Phil; PhD",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980749_4414669_900.JPG"
+  },
+  {
+    "name": "Sara DeGeorge",
+    "school": "york",
+    "title": "Jump Start & English Teacher",
+    "email": "sdegeorge@yorkprep.org",
+    "education": "University of Delaware - B.S., Long Island University - M.S., William Paterson University - M.Ed.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980819_4414739_557.JPG"
+  },
+  {
+    "name": "Joanna Domenicali-Shah",
+    "school": "york",
+    "title": "Chair of Science Dept & Science Teacher",
+    "email": "jdomenicalishah@yorkprep.org",
+    "education": "Smith College - B.A., University of Massachusetts Dartmouth - M.S.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980779_4414699_245.JPG"
+  },
+  {
+    "name": "Hali Dorfman",
+    "school": "york",
+    "title": "Jump Start Teacher",
+    "email": "hdorfman@yorkprep.org",
+    "education": "The University of Hartford - B.S., City College of New York - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980820_4414740_306.JPG"
+  },
+  {
+    "name": "Jessica Fazio",
+    "school": "york",
+    "title": "Physical Education & Health Teacher",
+    "email": "jfazio@yorkprep.org",
+    "education": "Plattsburg State University - B.S., Manhattanville College - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980795_4414715_432.JPG"
+  },
+  {
+    "name": "Melissa Feibusch",
+    "school": "york",
+    "title": "Jump Start & Spanish Teacher",
+    "email": "mfeibusch@yorkprep.org",
+    "education": "Indiana University - B.A., Touro College - M.S.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980821_4414741_801.JPG"
+  },
+  {
+    "name": "Jennifer Fratta",
+    "school": "york",
+    "title": "Jump Start & History Teacher",
+    "email": "jfratta@yorkprep.org",
+    "education": "Sacred Heart University - B.A., Adelphi University - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980822_4414742_891.JPG"
+  },
+  {
+    "name": "Emma Giebler",
+    "school": "york",
+    "title": "Jump Start & English Teacher",
+    "email": "egiebler@yorkprep.org",
+    "education": "Syracuse University - B.A., CUNY - Hunter - M.S.Ed.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6059617_4493372_651.JPG"
+  },
+  {
+    "name": "Vicki Goldstein",
+    "school": "york",
+    "title": "Director of Business Services",
+    "email": "vickig2@aol.com",
+    "education": "N.Y. Institute of Technology - B.S.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980841_4414761_782.jpg"
+  },
+  {
+    "name": "Sam Gordon",
+    "school": "york",
+    "title": "History Teacher",
+    "email": "sgordon@yorkprep.org",
+    "education": "Pomona College - B.A., Fordham University - M.S.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980773_4414693_384.JPG"
+  },
+  {
+    "name": "Karl Hartman",
+    "school": "york",
+    "title": "Chair of Art Department & Visual Arts Teacher",
+    "email": "khartman@yorkprep.org",
+    "education": "University of Oklahoma - B.S., School of Visual Arts - M.F.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980787_4414707_372.JPG"
+  },
+  {
+    "name": "Brittany Hastings",
+    "school": "york",
+    "title": "Jump Start & Reading Teacher",
+    "email": "bhastings@yorkprep.org",
+    "education": "James Madison University - B.A., St. Thomas Aquinas - M.S.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980824_4414744_96.JPG"
+  },
+  {
+    "name": "Hilary Hersh",
+    "school": "york",
+    "title": "English Teacher",
+    "email": "hhersh@yorkprep.org",
+    "education": "Yale University - B.A., Columbia University School of Journalism - M.S.;, Fordham University - M. Ed.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980750_4414670_635.JPG"
+  },
+  {
+    "name": "Mark Hertko",
+    "school": "york",
+    "title": "Science Teacher",
+    "email": "mhertko@yorkprep.org",
+    "education": "Monmouth College - B.A., University of Illinois - M.A., Pace University - M.S.Ed.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980780_4414700_494.JPG"
+  },
+  {
+    "name": "Kalyn Higgins",
+    "school": "york",
+    "title": "Jump Start Teacher",
+    "email": "khiggins@yorkprep.org",
+    "education": "Rutgers University, New Brunswick - B.A., University of Pennsylvania - MS.Ed.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980825_4414745_454.JPG"
+  },
+  {
+    "name": "Lauren Hile",
+    "school": "york",
+    "title": "Jump Start Teacher",
+    "email": "lhile@yorkprep.org",
+    "education": "Southern Connecticut State University - B.A., Southern Connecticut State University - M.Ed.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6059618_4493373_13.JPG"
+  },
+  {
+    "name": "Colin Horn",
+    "school": "york",
+    "title": "Physical Education Teacher",
+    "email": "chorn@yorkprep.org",
+    "education": "Hunter College - B.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980797_4414717_433.JPG"
+  },
+  {
+    "name": "Simone Hristidis",
+    "school": "york",
+    "email": "shristidis@yorkprep.org",
+    "education": "Barnard College - B.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5819283_4253349_925.JPG"
+  },
+  {
+    "name": "Fiona Hutchison",
+    "school": "york",
+    "title": "Chair of Performing Arts & Performing Arts Teacher",
+    "email": "fhutchison@yorkprep.org",
+    "education": "Royal Ballet School, School of American Ballet, American Ballet Theater",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980789_4414709_854.JPG"
+  },
+  {
+    "name": "Qiawen (Wendy) Jin",
+    "school": "york",
+    "title": "10th & 11th Grade Dean & Science Teacher",
+    "email": "wjin@yorkprep.org",
+    "education": "Shanghai International Studies University - B.A., Columbia University - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980781_4414701_120.JPG"
+  },
+  {
+    "name": "Charles Kaczynski",
+    "school": "york",
+    "title": "Co-Director of Scholars & History Teacher",
+    "email": "ckaczynski@yorkprep.org",
+    "education": "Miami University - B.S., Northern Illinois University - M.A., Catholic University of America - Ph. D.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980775_4414695_383.JPG"
+  },
+  {
+    "name": "Lillian Kennedy",
+    "school": "york",
+    "title": "History Teacher",
+    "email": "lkennedy@yorkprep.org",
+    "education": "Seton Hall University - B.A., The New School - M.A., Teacher's College, Columbia University - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980774_4414694_234.JPG"
+  },
+  {
+    "name": "Gena Lakin",
+    "school": "york",
+    "title": "Jump Start Teacher",
+    "email": "glakin@yorkprep.org",
+    "education": "SUNY - Buffalo State College - B.A., CUNY - Hunter - M.S. Ed",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6059619_4493374_194.JPG"
+  },
+  {
+    "name": "Jacqueline Leber",
+    "school": "york",
+    "title": "Jump Start Teacher",
+    "email": "jleber@yorkprep.org",
+    "education": "Lehigh University - B.A., Columbia University, Teachers College - M.A., Columbia University, Teachers College - Ed.D.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980826_4414746_6.JPG"
+  },
+  {
+    "name": "David Leventhal",
+    "school": "york",
+    "title": "12th Grade Dean & English Teacher",
+    "email": "dleventhal@yorkprep.org",
+    "education": "Wesleyan University - B.A., Hunter College - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980751_4414671_238.JPG"
+  },
+  {
+    "name": "Richard Loo",
+    "school": "york",
+    "title": "Nurse",
+    "email": "rloo@yorkprep.org",
+    "education": "New York University - B.S., Long Island University - B.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980803_4414723_717.JPG"
+  },
+  {
+    "name": "Kathryn Maggiotto",
+    "school": "york",
+    "title": "Middle School Dean & English Teacher",
+    "email": "kmaggiotto@yorkprep.org",
+    "education": "Trinity College - B.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980752_4414672_839.JPG"
+  },
+  {
+    "name": "Blackbaud Manager",
+    "school": "york"
+  },
+  {
+    "name": "Heather Marshall",
+    "school": "york",
+    "title": "Principal & History Teacher",
+    "email": "hmarshall@yorkprep.org",
+    "education": "Samford University - B.A., Jacksonville State University - M.Ed.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980776_4414696_140.JPG"
+  },
+  {
+    "name": "Lance Martin",
+    "school": "york",
+    "title": "Art Teacher",
+    "email": "lmartin@yorkprep.org",
+    "education": "Training: Dance Live, California, Training: Funk Beyond Control, Training: Meidu Studio, Xi’an China",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980790_4414710_911.JPG"
+  },
+  {
+    "name": "Andrew Marzoni",
+    "school": "york",
+    "title": "English Teacher",
+    "email": "amarzoni@yorkprep.org",
+    "education": "University of San Diego - B.A., NYU - M.A., University of Minnesota - Ph.D.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6335171_4768528_403.JPG"
+  },
+  {
+    "name": "Shane Meals",
+    "school": "york",
+    "title": "Jump Start Teacher",
+    "email": "smeals@yorkprep.org",
+    "education": "William Paterson University - B.A., Saint Mary's University - M.A. Ed.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6059620_4493375_443.JPG"
+  },
+  {
+    "name": "Emily Mercado",
+    "school": "york",
+    "title": "Librarian",
+    "email": "emercado@yorkprep.org",
+    "education": "University of Saint Joseph - B.S., Southern Connecticut State University - M.L.S.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6059615_4493370_771.JPG"
+  },
+  {
+    "name": "Nicole Michael",
+    "school": "york",
+    "title": "Physical Education Teacher & Coach",
+    "email": "nmichael@yorkprep.og",
+    "education": "Syracuse - B.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6059613_4493368_987.JPG"
+  },
+  {
+    "name": "Maria Morley",
+    "school": "york",
+    "title": "Jump Start Teacher",
+    "email": "mmorley@yorkprep.org",
+    "education": "Syracuse University - B.S., New York University - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980828_4414748_649.JPG"
+  },
+  {
+    "name": "Michael Morrissey",
+    "school": "york",
+    "title": "Jump Start Teacher",
+    "email": "mmorrissey@yorkprep.org",
+    "education": "State University of New York at Geneseo - B.A., Alfred University - M.A.Ed",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980829_4414749_18.JPG"
+  },
+  {
+    "name": "Arlette Ostrow",
+    "school": "york",
+    "title": "French Teacher",
+    "email": "aostrow@yorkprep.org",
+    "education": "City University of New York - B.A., Columbia University, Teachers College - M.A., University of Paris, Sorbonne - M.A. & Program for the Teaching of French Certificate",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980764_4414684_168.JPG"
+  },
+  {
+    "name": "Madeleine Palmer",
+    "school": "york",
+    "title": "Jump Start Teacher, Science Teacher",
+    "email": "mpalmer@yorkprep.org",
+    "education": "Dickinson College - B.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980830_4414750_518.JPG"
+  },
+  {
+    "name": "Ethan Pennington",
+    "school": "york",
+    "title": "English, Reading, & Writing Teacher",
+    "email": "epennington@yorkprep.org",
+    "education": "Guilford College - B.A., Touro College - M.S.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980753_4414673_557.JPG"
+  },
+  {
+    "name": "Joyce Perley",
+    "school": "york",
+    "title": "Math Teacher",
+    "email": "jperley@yorkprep.org",
+    "education": "Bates College - B.S., Plymouth State College - M.Ed.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980757_4414677_806.JPG"
+  },
+  {
+    "name": "Dahlia Perry",
+    "school": "york",
+    "title": "Math Teacher",
+    "email": "dperry@yorkprep.org",
+    "education": "University of Pennsylvania - B.A., University of Pennsylvania - Wharton - B.S., RELAY GSE - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6059608_4493363_24.JPG"
+  },
+  {
+    "name": "Victoria Pevzner",
+    "school": "york",
+    "title": "Spanish Teacher",
+    "email": "vpevzner@yorkprep.org",
+    "education": "University of Oregon - B.A., University of Granada, Spain - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980765_4414685_275.JPG"
+  },
+  {
+    "name": "Carolyn Pierce",
+    "school": "york",
+    "title": "Science Teacher",
+    "email": "cpierce@yorkprep.org",
+    "education": "Skidmore College - B.A., NYU - M.S.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6059610_4493365_483.JPG"
+  },
+  {
+    "name": "Gregory Pijanowski",
+    "school": "york",
+    "title": "Science Teacher",
+    "email": "gpijanowski@yorkprep.org",
+    "education": "SUNY College at Buffalo - B.A., SUNY Empire State College - B.S., M.Ed., University of North Dakota - M.S.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980783_4414703_291.JPG"
+  },
+  {
+    "name": "Stacy Povshko",
+    "school": "york",
+    "title": "Math Teacher",
+    "email": "spovshko@yorkprep.org",
+    "education": "Moscow Pedagogical University - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980758_4414678_390.JPG"
+  },
+  {
+    "name": "Theodore Preston, II",
+    "school": "york",
+    "title": "Math Teacher",
+    "email": "tpreston@yorkprep.org",
+    "education": "Baruch College - B.A., Georgia State University - M.Ed.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980759_4414679_190.JPG"
+  },
+  {
+    "name": "Cristina Reece",
+    "school": "york",
+    "title": "Assistant to Headmaster",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980853_4414773_364.JPG"
+  },
+  {
+    "name": "Robert Reese",
+    "school": "york",
+    "title": "Senior Psychologist, Science & History Teacher",
+    "email": "rreese@yorkprep.org",
+    "education": "Rensselaer Polytechnic Institute - B.S., Cornell University - M.S., Yeshiva University - Psy.D.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980784_4414704_682.JPG"
+  },
+  {
+    "name": "Janet Rooney",
+    "school": "york",
+    "title": "Co-Dir. of College Guidance/Dir. Of Summer School",
+    "email": "jrooney@yorkprep.org",
+    "education": "University of Southern Maine - B.A., Saint Michael's College - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980805_4414725_747.JPG"
+  },
+  {
+    "name": "Michael Roper",
+    "school": "york",
+    "title": "History Teacher",
+    "email": "mroper@yorkprep.org",
+    "education": "St. Edward’s University - B.A., Fairfield University - M.A.T.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980777_4414697_809.JPG"
+  },
+  {
+    "name": "Jason Rossi",
+    "school": "york",
+    "title": "Language",
+    "email": "jrossi@yorkprep.org",
+    "education": "Santa Clara University - B.A., Middlebury College - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980766_4414686_610.JPG"
+  },
+  {
+    "name": "Evelyn Rowe-Cosentino",
+    "school": "york",
+    "title": "School Counselor",
+    "email": "erowecosentino@yorkprep.org",
+    "education": "St. Joseph's College - B.A., New York University - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980806_4414726_358.JPG"
+  },
+  {
+    "name": "Ye (Stella) Ruan",
+    "school": "york",
+    "title": "Mandarin Teacher",
+    "email": "yruan@yorkprep.org",
+    "education": "Shanghai Normal University - B.A., University of Bridgeport - M.S., M.Ed.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980767_4414687_861.JPG"
+  },
+  {
+    "name": "Dianna Ryerson",
+    "school": "york",
+    "title": "Math Teacher",
+    "email": "dryerson@yorkprep.org",
+    "education": "State Univ. of NY at Rockland Comm. College - A.A.S., St. Thomas Aquinas College - B.S., M.S",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980760_4414680_680.JPG"
+  },
+  {
+    "name": "Jennifer Salerno",
+    "school": "york",
+    "title": "Jump Start & Math Teacher",
+    "email": "jsalerno@yorkprep.org",
+    "education": "St. John’s University - B.S., M.S.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980831_4414751_903.JPG"
+  },
+  {
+    "name": "Irini Samolis",
+    "school": "york",
+    "title": "ASL Teacher",
+    "email": "isamolis@yorkprep.org",
+    "education": "Touro College - B.A., Columbia University, Teachers College - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980768_4414688_143.JPG"
+  },
+  {
+    "name": "Julie Sarasohn",
+    "school": "york",
+    "title": "Spanish Teacher",
+    "email": "jsarasohn@yorkprep.org",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980769_4414689_530.JPG"
+  },
+  {
+    "name": "Sharla Sava",
+    "school": "york",
+    "title": "Director of Digital Learning Design",
+    "email": "ssava@yorkprep.org",
+    "education": "SFU - Ph.D.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6190801_4624184_141.JPG"
+  },
+  {
+    "name": "Gary Schwartz",
+    "school": "york",
+    "title": "Art Teacher",
+    "email": "gschwartz@yorkprep.org",
+    "education": "School of Visual Arts, New York City - B.F.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980791_4414711_403.JPG"
+  },
+  {
+    "name": "Jon Serri",
+    "school": "york",
+    "title": "English Teacher",
+    "email": "jserri@yorkprep.org",
+    "education": "Skidmore College - B.A., Iona College - M.A",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980754_4414674_253.JPG"
+  },
+  {
+    "name": "Rene Shaw",
+    "school": "york",
+    "title": "Math Teacher",
+    "email": "rshaw@yorkprep.org",
+    "education": "NYU - B.A., NYU - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6059609_4493364_686.JPG"
+  },
+  {
+    "name": "Brian Shure",
+    "school": "york",
+    "title": "9th Grade Dean & Math Teacher",
+    "email": "bshure@yorkprep.org",
+    "education": "University of Michigan - B.A., Manhattanville College - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980762_4414682_706.JPG"
+  },
+  {
+    "name": "Casey Snepar",
+    "school": "york",
+    "title": "Coding & Technology Teacher",
+    "email": "csnepar@yorkprep.org",
+    "education": "Union College (NY) - B.A., The City University of New York, Hunter College - M.A., The New York Code & Design Academy - Web Development & Front-End Website Development",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980807_4414727_945.JPG"
+  },
+  {
+    "name": "Shoshana Spencer",
+    "school": "york",
+    "title": "Digital Arts",
+    "email": "sspencer@yorkprep.org",
+    "education": "School of The Museum of Fine Arts, Boston & Tufts University - B.F.A., Rhode Island School of Design - M.A.T.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980792_4414712_100.JPG"
+  },
+  {
+    "name": "Pamela Stanley",
+    "school": "york",
+    "title": "Jump Start",
+    "email": "pstanley@yorkprep.org",
+    "education": "University of Southern Mississippi - M.S., B.S., William Carey College - M.S.Ed.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980832_4414752_624.JPG"
+  },
+  {
+    "name": "Jayme Stewart",
+    "school": "york",
+    "title": "Director of College Guidance",
+    "email": "jstewart@yorkprep.org",
+    "education": "Barnard College - B.A., Columbia University",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980808_4414728_552.JPG"
+  },
+  {
+    "name": "Ronald Stewart",
+    "school": "york",
+    "title": "Head / Ethics Teacher",
+    "email": "rstewart@yorkprep.org",
+    "education": "Oxford University - B.A., M.A., B.C.L.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980809_4414729_161.JPG"
+  },
+  {
+    "name": "Emily-Greta Tabourin",
+    "school": "york",
+    "title": "French & History Teacher",
+    "email": "etabourin@yorkprep.org",
+    "education": "Bryn Mawr College - B.A., University of Pennsylvania - M.A., New York University - M.F.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980770_4414690_654.JPG"
+  },
+  {
+    "name": "Eric Tull",
+    "school": "york",
+    "title": "History Teacher",
+    "email": "etull@yorkprep.org",
+    "education": "School of Fine Arts, Boston University - B.A., School of Social Work, Columbia University - M.S.W., Bank Street College of Education - M.S.Ed.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980778_4414698_26.JPG"
+  },
+  {
+    "name": "Nicholas Turi",
+    "school": "york",
+    "title": "Physical Education Teacher",
+    "email": "nturi@yorkprep.org",
+    "education": "St. John's University - B.A., Northeastern University - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6059614_4493369_623.JPG"
+  },
+  {
+    "name": "Leah Umansky",
+    "school": "york",
+    "title": "Chair of English Dept. & English Teacher",
+    "email": "lumansky@yorkprep.org",
+    "education": "Binghamton University - B.A., Sarah Lawrence College - M.F.A., Hunter College - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980755_4414675_382.JPG"
+  },
+  {
+    "name": "Jordan Valentzas",
+    "school": "york",
+    "title": "Physical Education Teacher",
+    "email": "jvalentzas@yorkprep.org",
+    "education": "Elon University - B.S.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980799_4414719_258.JPG"
+  },
+  {
+    "name": "Adela Veljovic",
+    "school": "york",
+    "email": "aveljovic@yorkprep.org",
+    "education": "St. John's University - B.A., St. John's University - M.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6279903_4713271_539.JPG"
+  },
+  {
+    "name": "John Viscardi",
+    "school": "york",
+    "title": "Drama Director & Performing Arts Teacher",
+    "email": "jviscardi@yorkprep.org",
+    "education": "Columbia University - B.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5980793_4414713_802.JPG"
+  },
+  {
+    "name": "Michael Ward",
+    "school": "york",
+    "title": "Science Teacher",
+    "email": "mward@yorkprep.org",
+    "education": "Queens University Belfast - Bachelors of Education with Math and Science, Queens University Belfast - Masters of Education",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user6059611_4493366_515.JPG"
+  },
+  {
+    "name": "Tracy Warner",
+    "school": "york",
+    "email": "twarner@yorkprep.org",
+    "education": "Georgetown University - B.A., New York University, Stern School of Business - M.B.A.",
+    "image": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/1382/user/thumb_user5819320_4253386_614.JPG"
+  },
+  {
+    "name": "Anita Xu",
+    "school": "york",
+    "email": "axu@yorkprep.org",
+    "education": "Peking University - B.S., Vanderbilt University - MBA, NYU - M.A."
+  }
+]

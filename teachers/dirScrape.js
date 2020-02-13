@@ -107,10 +107,10 @@ async function grabPage(url, school) {
 ); */
 
 // grace
-main(
+/* main(
   'https://www.gcschool.org/about-gcs/faculty--staff?letter=',
   'grace',
-); /*/
+); */
 
 // lrei
 /* main(
@@ -136,23 +136,8 @@ main(
   'spence',
 ); */
 
-
-
-/*
-// grace
+// york
 main(
-  'https://www.marymountnyc.org/about/faculty/facultystaff-directory?letter=',
-  'grace',
-); */
-/*
-// grace
-main(
-  'https://www.marymountnyc.org/about/faculty/facultystaff-directory?letter=',
-  'grace',
-); */
-/*
-// grace
-main(
-  'https://www.marymountnyc.org/about/faculty/facultystaff-directory?letter=',
-  'grace',
-); */
+  'https://www.yorkprep.org/about/faculty?letter=',
+  'york',
+);
