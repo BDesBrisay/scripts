@@ -38,23 +38,25 @@ async function grabPage(url, school) {
       function timeout(ms) { return new Promise(resolve => setTimeout(resolve, ms)); };
 
       let all = [];
-      while (all.length < 363 && document.querySelector('.fsNextPageLink')) {
+      while (all.length < 400 && document.querySelector('.fsNextPageLink')) {
         const items = new Array(...document.querySelectorAll('.fsConstituentItem'))
           .map((el) => {
             const name = el.querySelector('.fsFullName').innerText;
             const title = el.querySelector('.fsTitles');
             const phone = el.querySelector('.fsPhone');
             const email = el.querySelector('.fsEmail > a');
-            const location = el.querySelector('.fsLocation');
+            const location = el.querySelector('.fsLocations');
             const image = el.querySelector('.fsThumbnail');
+            const education = el.querySelector('.fsDegrees');
     
             const res = { name, school };
             if (title) res.title = title.innerText;
             if (phone) res.phone = phone.innerText;
             if (location) res.location = location.innerText;
             if (image) res.image = image.src;
+            if (education) res.education = education.innerText.replace('\n', ', ');
             if (email) res.email = email.href;
-            else res.email = name[0] + name.split(' ')[1]+ '@' + school + '.edu';
+            else res.email = name[0] + name.split(' ')[1]+ `@${school}.edu`;
     
             return res;
           });
@@ -79,20 +81,26 @@ async function grabPage(url, school) {
   }
 }
 
-// poly
+// nightingale
 /* main(
-  'https://www.polyprep.org/about-poly/faculty--staff?letter=',
-  'poly',
+  'https://www.nightingale.org/about/faculty-staff-directory',
+  'nightingale',
 ); */
 
-// spence
+// winward
 /* main(
-  'https://www.spenceschool.org/about-spence/contact-us?letter=',
-  'spence',
+  'https://www.thewindwardschool.org/community/faculty-staff/faculty-staff-directory-clone-clone',
+  'winward',
 ); */
 
 // packer
-main(
+/* main(
   'https://www.packer.edu/about/faculty-staff',
   'packer',
-);
+); */
+
+// horace
+main(
+  'https://www.horacemann.org/our-school/faculty-staff-directory',
+  'horace'
+)
