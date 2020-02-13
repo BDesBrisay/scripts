@@ -3,10 +3,12 @@ function draw() {
   if (canvas.getContext) {
     var ctx = canvas.getContext('2d');
 
-    ctx.fillStyle = 'rgb(200, 0, 0)';
-    ctx.fillRect(10, 10, 50, 50);
-
-    ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
-    ctx.fillRect(30, 30, 50, 50);
+    let dist = 1;
+    while (dist < 10) {
+      setTimeout(() => {
+        ctx.fillStyle = `rgba(0, 0, 200, ${1 / dist++})`;
+        ctx.fillRect(30 * dist, 30 * dist, 50, 50);
+      }, 500);
+    }
   }
 };

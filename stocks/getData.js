@@ -6,9 +6,9 @@ const AVKEY2 = 'E6BKK6T99RPFV58P';
 
 const getData = async (symbol) => {
   try {  
-    const period = '2y';
+    const period = '5y';
     const IEX = await fetch(
-      `https://api.iextrading.com/1.0/stock/${symbol}/chart/${period}`, 
+      `https://sandbox.iexapis.com/stable/stock/${symbol}/chart/${period}?token=Tpk_e36f440149aa454fb74b25a94c8f4294`, 
       { method: 'get', headers: { 'Content-Type': 'application/json' } }
     ).then(res => res.json());
     
@@ -113,7 +113,7 @@ const dataMain = () => {
     'SPY',
     'MSFT'
   ]
-  const haul = setTimeout(() => getData(symbols[4]), 3000);
+  const haul = symbols.map((symbol) => getData(symbol));
 }
 
 dataMain()

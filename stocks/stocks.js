@@ -38,6 +38,7 @@ const normalize = (obj, test = false) => {
       rsi: Number((obj.rsi / 100).toFixed(2)),
       aboveSMA100: obj.open > obj.sma100,
       diffSMA100: Number((obj.open - obj.sma100).toFixed(2)),
+      
       /*aboveSAR: obj.sar / (obj.open * 2),
       macd: obj.macd,
       apo: obj.apo,
@@ -54,6 +55,7 @@ const normalize = (obj, test = false) => {
 
 const main = async () => {
   const start = Date.now();
+  const period = 365;
   try {
     const root = document.getElementById('root');
     let content = `
@@ -61,7 +63,7 @@ const main = async () => {
         <h1>Predicting gain at close using psar, macd, rsi, apo, and moving averages</h1>
     `;
 
-    const symbol = 'SPY';
+    const symbol = 'AAPL';
     const aaplData = JSON.parse(AAPL5y);
     const googData = JSON.parse(GOOG5y);
     const msftData = JSON.parse(MSFT5y);
@@ -72,8 +74,8 @@ const main = async () => {
       ...aaplData,
       ...googData,
       ...msftData,
-      ...twtrData,
-      ...spyData
+      // ...twtrData,
+      // ...spyData
     ]
 
     const allData = initData.map((item, i) => normalize(item, false));
@@ -83,8 +85,8 @@ const main = async () => {
 
     let iter = 1000;
     content += '<p>Training...</p>';
-    net.train(allData.slice(0, allData.length - 504), {
-      iterations: 20000,
+    net.train(allData.slice(0, allData.length - period), {
+      iterations: 1000,
       callback: () => {
         console.log(iter, formatTime(Date.now() - start)); 
         iter += 1000;
@@ -96,8 +98,8 @@ const main = async () => {
     const results = [];
     let error = 0;
     let value = 10000;
-    for (let i = allData.length - 504; i < allData.length; i++) {
-      console.log(i - allData.length, '/', 504)
+    for (let i = allData.length - period; i < allData.length; i++) {
+      console.log(i - allData.length, '/', period, allData[i])
       const res = net.run(allData[i].input);
       const truth = Math.round(res) === allData[i].output[0];
       results.push(truth);
@@ -134,8 +136,8 @@ const main = async () => {
       AAPL,
       GOOG,
       MSFT,
-      SPY,
-      TWTR
+      // SPY,
+      // TWTR
     }
     
     // Test Input
