@@ -1,0 +1,100 @@
+[
+  {
+    "name": "Doug Killin",
+    "title": "Head of School",
+    "email": "DKillin@compasshigh.org",
+    "school": "compasshigh",
+    "image": "https://compasshigh.org/wp-content/uploads/2019/09/doug_killin.jpg"
+  },
+  {
+    "name": "Andrea Adelmann",
+    "title": "Chief Financial Officer",
+    "email": "AAdelmann@compasshigh.org",
+    "school": "compasshigh",
+    "image": "https://compasshigh.org/wp-content/uploads/2019/09/andrea_adelmann.png"
+  },
+  {
+    "name": "Melissa Bakirman",
+    "title": "Social Studies Teacher",
+    "email": "MBakirman@compasshigh.org",
+    "school": "compasshigh",
+    "image": "https://compasshigh.org/wp-content/uploads/2020/01/S-Bakirman-scaled-e1579213656653.jpg"
+  },
+  {
+    "name": "Lindsay Ballard",
+    "title": "Art, Drama, Music Teacher",
+    "email": "LBallard@compasshigh.org",
+    "school": "compasshigh",
+    "image": "https://compasshigh.org/wp-content/uploads/2019/09/lindsay_ballard.png"
+  },
+  {
+    "name": "Sue Brown",
+    "title": "Critical Reading and Writing Teacher",
+    "email": "SBrown@compasshigh.org",
+    "school": "compasshigh",
+    "image": "https://compasshigh.org/wp-content/uploads/2020/01/S-Brown-scaled-e1579213133318.jpg"
+  },
+  {
+    "name": "Louise Fraser",
+    "title": "Science Teacher",
+    "email": "LFraser@compasshigh.org",
+    "school": "compasshigh",
+    "image": "https://compasshigh.org/wp-content/uploads/2019/09/louise_fraser.png"
+  },
+  {
+    "name": "Meredith Galvin",
+    "title": "Dean of Student Life",
+    "email": "MGalvin@compasshigh.org",
+    "school": "compasshigh",
+    "image": "https://compasshigh.org/wp-content/uploads/2019/09/Meredith_Galvin.jpg"
+  },
+  {
+    "name": "Shannon LeCompte",
+    "title": "Director of Admission and College Advising",
+    "email": "SLeCompte@compasshigh.org",
+    "school": "compasshigh",
+    "image": "https://compasshigh.org/wp-content/uploads/2019/09/shannon_LeCompte.jpg"
+  },
+  {
+    "name": "Kai Marks",
+    "title": "Director of Curriculum",
+    "email": "KMarks@compasshigh.org",
+    "school": "compasshigh",
+    "image": "https://compasshigh.org/wp-content/uploads/2020/01/S-Marks-scaled-e1579213078302.jpg"
+  },
+  {
+    "name": "Anthony Miller",
+    "title": "Math Teacher",
+    "email": "AMiller@compasshigh.org",
+    "school": "compasshigh",
+    "image": "https://compasshigh.org/wp-content/uploads/2020/01/S-Miller-1-scaled-e1579213382712.jpg"
+  },
+  {
+    "name": "Radni Pireh",
+    "title": "Technology Coordinator",
+    "email": "RPireh@compasshigh.org",
+    "school": "compasshigh",
+    "image": "https://compasshigh.org/wp-content/uploads/2020/01/S-Pireh-scaled-e1579212355311.jpg"
+  },
+  {
+    "name": "Dr. Michelle Popper",
+    "title": "Psychotherapist",
+    "email": "mPopper@compasshigh.org",
+    "school": "compasshigh",
+    "image": "https://compasshigh.org/wp-content/uploads/2020/01/S-Popper-1-scaled-e1579213509740.jpg"
+  },
+  {
+    "name": "Christine Trefz",
+    "title": "Office Manager",
+    "email": "CTrefz@compasshigh.org",
+    "school": "compasshigh",
+    "image": "https://compasshigh.org/wp-content/uploads/2019/09/christine_trefz.png"
+  },
+  {
+    "name": "Carolyn Wilsey",
+    "title": "English Teacher",
+    "email": "CWilsey@compasshigh.org",
+    "school": "compasshigh",
+    "image": "https://compasshigh.org/wp-content/uploads/2019/09/carolyn_wilsey.png"
+  }
+]

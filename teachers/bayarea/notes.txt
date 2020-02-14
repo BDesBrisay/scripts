@@ -1,0 +1,12 @@
+// compass high
+JSON.stringify(new Array(...document.querySelectorAll('.team-entry')).map((el) => { 
+  const name = el.querySelector('h4').innerText; 
+  const title = el.querySelector('p'); 
+  return { 
+    name, 
+    title: title ? title.innerText : '', 
+    email: name[0] + name.split(' ')[name.split(' ').length - 1] + '@compasshigh.org', 
+    school: 'compasshigh', 
+    image: el.querySelector('img').src
+  };
+}))
