@@ -100,7 +100,13 @@ async function grabPage(url, school) {
 ); */
 
 // horace
-main(
+/* main(
   'https://www.horacemann.org/our-school/faculty-staff-directory',
   'horace'
-)
+); */
+
+// chapin
+main(
+  'https://www.chapin.edu/about/chapin-community/professional-community-directory',
+  'chapin'
+);
