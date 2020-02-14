@@ -22,7 +22,7 @@ async function main(url, school) {
 
 async function grabPage(url, school) {
   try {
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
 
     const status = await page.goto(url, {
@@ -40,12 +40,12 @@ async function grabPage(url, school) {
       let all = [];
       while (all.length < 400 && document.querySelector('.fsNextPageLink')) {
         const items = new Array(...document.querySelectorAll('.fsConstituentItem'))
-          .map((el) => {
+          .map((el, i) => {
             const name = el.querySelector('.fsFullName').innerText;
             const title = el.querySelector('.fsTitles');
-            const phone = el.querySelector('.fsPhone');
-            const email = el.querySelector('.fsEmail > a');
-            const location = el.querySelector('.fsLocations');
+            const phone = el.querySelector('.fsPhone') || el.querySelector('.fsPhones');
+            const email = el.querySelector('.fsEmail a');
+            const location = el.querySelector('.fsLocation') || el.querySelector('.fsLocations');
             const image = el.querySelector('.fsThumbnail');
             const education = el.querySelector('.fsDegrees');
     
@@ -57,7 +57,7 @@ async function grabPage(url, school) {
             if (education) res.education = education.innerText.replace('\n', ', ');
             if (email) res.email = email.href;
             else res.email = name[0] + name.split(' ')[1]+ `@${school}.edu`;
-    
+
             return res;
           });
 
