@@ -1,6 +1,8 @@
 body {
   display: flex;
   margin: 0;
+  background: #012;
+  color: #0f0;
 }
 #content {
   width: 70vw;
@@ -11,38 +13,36 @@ body {
 .list {
   width: 30vw;
   height: 100vh;
-  background: #eee;
+  background: #123;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 #doctype {
-  background: #eee;
+  background: #123;
   position: relative;
-  margin: 76px 24px 48px;
+  margin: 60px 20px 30px;
   padding: 0;
   box-sizing: border-box;
-  min-height: 50px;
+  min-height: 60px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
 }
 #doctype::before,
 #doctype::after {
   content: '<!DOCTYPE html>\A<html>';
   position: absolute;
-  top: -54px;
+  top: -44px;
   left: 0;
   width: 100%;
-  color: #345;
-  line-height: 24px;
-  font-size: 14px;
+  line-height: 20px;
   white-space: pre;
-  font-weight: bold;
+  font-family: monospace;
 }
 #doctype::after {
   content: '</html>';
-  bottom: -30px;
+  bottom: -24px;
   top: unset;
 }
 
@@ -55,28 +55,56 @@ body {
   -khtml-user-drag: element;
   -webkit-user-drag: element;
 }
-.item {
-  width: 150px;
-  float: left;
-  background-color: #ddd;
+.item,
+.contentItem {
+  width: 100%;
+  background-color: #234;
+  font-family: monospace;;
   margin-bottom: 8px;
-  border-radius: 10px;
+  padding: 16px;
+  box-sizing: border-box;
   text-align: center;
   cursor: move;
   position: relative;
+  transition: all 0.2s;
 }
-.over {
-  background: #f8f8f8;
+.contentOver {
+  border-top: 2px solid blue;
 }
 .contentItem {
-  width: 150px;
-  float: left;
-  background-color: green;
-  margin-bottom: 8px;
-  border-radius: 10px;
-  text-align: center;
-  cursor: move;
-  position: relative;
   display: flex;
+  background: none; 
   flex-direction: column;
+  text-align: left;
+  padding: 0;
+  min-height: 20px;
+  line-height: 20px;
+  margin: 24px 16px;
+  border-left: 2px solid #0f07;
+  border-right: none;
+}
+.contentItem.div { 
+  position: relative;
+}
+.contentItem.div::before,
+.contentItem.div::after {
+  content: '<div>';
+  position: absolute;
+  top: -24px;
+  left: -2px;
+  padding-left: 4px;
+  box-sizing: border-box;
+  width: 100%;
+  line-height: 22px;
+  white-space: pre;
+  border: none;
+  border-left: 2px solid #0f07;
+  border-top: 2px solid #0f07;
+}
+.contentItem.div::after {
+  content: '</div>';
+  bottom: -24px;
+  top: unset;
+  border-top: none;
+  border-bottom: 2px solid #0f07;
 }
