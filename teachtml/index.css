@@ -1,0 +1,82 @@
+body {
+  display: flex;
+  margin: 0;
+}
+#content {
+  width: 70vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.list {
+  width: 30vw;
+  height: 100vh;
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#doctype {
+  background: #eee;
+  position: relative;
+  margin: 76px 24px 48px;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+}
+#doctype::before,
+#doctype::after {
+  content: '<!DOCTYPE html>\A<html>';
+  position: absolute;
+  top: -54px;
+  left: 0;
+  width: 100%;
+  color: #345;
+  line-height: 24px;
+  font-size: 14px;
+  white-space: pre;
+  font-weight: bold;
+}
+#doctype::after {
+  content: '</html>';
+  bottom: -30px;
+  top: unset;
+}
+
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
+.item {
+  width: 150px;
+  float: left;
+  background-color: #ddd;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: move;
+  position: relative;
+}
+.over {
+  background: #f8f8f8;
+}
+.contentItem {
+  width: 150px;
+  float: left;
+  background-color: green;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: move;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
