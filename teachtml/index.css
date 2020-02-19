@@ -1,8 +1,8 @@
 body {
   display: flex;
   margin: 0;
-  background: #012;
-  color: #0f0;
+  background: #fff;
+  color: #333;
 }
 #content {
   width: 70vw;
@@ -13,14 +13,14 @@ body {
 .list {
   width: 30vw;
   height: 100vh;
-  background: #123;
+  background: #eee;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 #doctype {
-  background: #123;
+  background: #eee;
   position: relative;
   margin: 60px 20px 30px;
   padding: 0;
@@ -58,7 +58,7 @@ body {
 .item,
 .contentItem {
   width: 100%;
-  background-color: #234;
+  background-color: #ddd;
   font-family: monospace;;
   margin-bottom: 8px;
   padding: 16px;
@@ -80,7 +80,7 @@ body {
   min-height: 20px;
   line-height: 20px;
   margin: 24px 16px;
-  border-left: 2px solid #0f07;
+  width: calc(100% - 16px);
   border-right: none;
 }
 .contentItem.div { 
@@ -98,13 +98,10 @@ body {
   line-height: 22px;
   white-space: pre;
   border: none;
-  border-left: 2px solid #0f07;
-  border-top: 2px solid #0f07;
 }
 .contentItem.div::after {
   content: '</div>';
   bottom: -24px;
   top: unset;
   border-top: none;
-  border-bottom: 2px solid #0f07;
 }
