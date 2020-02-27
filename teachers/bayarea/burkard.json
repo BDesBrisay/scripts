@@ -1,0 +1,134 @@
+[
+  {
+    "name": "Agapi Burkard",
+    "title": "Head of School",
+    "image": "https://theburkardschool.org/wp-content/uploads/2015/05/agapi600.jpg",
+    "education": "Juris Doctor - University of California, Hastings College of the Law, Bachelor of Science, Economics - Santa Clara University",
+    "school": "burkard"
+  },
+  {
+    "name": "Scott Thompson, MS",
+    "title": "Assistant Head of School",
+    "image": "https://theburkardschool.org/wp-content/uploads/2019/10/Scott600.jpg",
+    "education": "Masters of Science, Educational Leadership - California State University East Bay, Bachelor of Arts, Elementary Education – Specialization in English Literature - San Diego State University",
+    "school": "burkard"
+  },
+  {
+    "name": "Barbara Engelman, MA, LMFT",
+    "title": "Director of Social Emotional Learning",
+    "image": "https://theburkardschool.org/wp-content/uploads/2015/05/barbara.jpg",
+    "education": "Licensed Marriage and Family Therapist - California, Master of Arts, Clinical and Community Psychology - Arizona State University, Bachelor of Arts, Psychology - University of California – Los Angeles",
+    "school": "burkard"
+  },
+  {
+    "name": "Kerri Maloney, MS",
+    "title": "Grades K/1 Educator",
+    "image": "https://theburkardschool.org/wp-content/uploads/2015/05/Kerri.jpg",
+    "education": "Master of Science, Education - Dominican University, Bachelor of Science, Social Welfare - University of California, Berkeley, California Multiple Subject Clear Credential",
+    "school": "burkard"
+  },
+  {
+    "name": "Michelle Malashevitz",
+    "title": "Grades 2/3 Educator",
+    "image": "https://theburkardschool.org/wp-content/uploads/2018/09/Michelle-Malashevitz.jpg",
+    "education": "Bachelor of Arts, Elementary Education - Thomas More College, Crestview Hills, Kentucky, 4 Year Resident Educator Early Childhood (P-3) Licensure with an endorsement of Early Childhood Generalist (4-5) - State of Ohio Department of Education",
+    "school": "burkard"
+  },
+  {
+    "name": "Harvest Radich",
+    "title": "Grades 3/4 Educator",
+    "image": "https://theburkardschool.org/wp-content/uploads/2019/10/Harvest600.jpg",
+    "education": "Bachelor of Science, Education - The Ohio State University",
+    "school": "burkard"
+  },
+  {
+    "name": "Alexandra Sylvester",
+    "title": "Grades 4/5 Founding Educator",
+    "image": "https://theburkardschool.org/wp-content/uploads/2015/05/alexsylvester.jpeg",
+    "education": "Bachelor of Arts, Liberal Studies - San Jose State University, California Multiple Subject Clear Credential",
+    "school": "burkard"
+  },
+  {
+    "name": "Dominic Jelso",
+    "title": "Grades 6/7 Educator",
+    "image": "https://theburkardschool.org/wp-content/uploads/2019/10/Dominick600.jpg",
+    "education": "CTEL I, II, III (BCLAD endorsement - University of California, Berkeley, Teaching License Level II - University of New Mexico, Albuquerque, Bachelor of Science, Geology - University of New Mexico, Albuquerque, Bachelor of Art, Geography - University of New Mexico, Albuquerque",
+    "school": "burkard"
+  },
+  {
+    "name": "Laura Puras",
+    "title": "Music Teacher",
+    "image": "https://theburkardschool.org/wp-content/uploads/2015/05/Laura-Puras.jpg",
+    "education": "Bachelor of Arts, Music Composition - Superior Conservatory of Music of Salamanca, Spain, Masters in Music Writing – Composition - Associated University of Brussels, Belgium - Koninklijk Conservatorium, Masters in Neuropsychology and Education - International University of La Rioja, Spain - Education Department, Private Music Tutor Certification - Associated Board of the Royal Schools of Music, UK",
+    "school": "burkard"
+  },
+  {
+    "name": "Manuel Minzer",
+    "title": "Physical Education Teacher",
+    "education": "Master of Arts, Interdisciplinary Democracy Studies - Open University, Tel-Aviv, Isreal, Bachelor of Arts, Physical Education - University of Chile, Santiago, Chile",
+    "school": "burkard"
+  },
+  {
+    "name": "Travis Beecher, MASS",
+    "title": "Classroom Behavior Specialist",
+    "image": "https://theburkardschool.org/wp-content/uploads/2019/10/Travis600.jpg",
+    "education": "Doctorate of Educational Leadership, expected August 2020 - San Jose State University, Masters of Applied Social Sciences, Public Administration - Florida A&M University, Bachelor of Science, Health Care Management - Florida A&M University",
+    "school": "burkard"
+  },
+  {
+    "name": "Michelle Benham, MA, BCBA",
+    "title": "Senior Behavior Specialist",
+    "image": "https://theburkardschool.org/wp-content/uploads/2015/05/Michelle.jpg",
+    "education": "Board Certified Behavior Analyst, Master of Arts, Psychology, Emphasis in Applied Behavior Analysis, California State University, Fresno, Bachelor of Arts, Psychology, San Diego State University",
+    "school": "burkard"
+  },
+  {
+    "name": "Kate Moore, RBT",
+    "title": "Classroom Behavior Specialist",
+    "image": "https://theburkardschool.org/wp-content/uploads/2018/09/Kate-Moore.jpg",
+    "education": "Bachelor of Science, Psychology - California Polytechnic State University, San Luis Obispo, Registered Behavior Technician ",
+    "school": "burkard"
+  },
+  {
+    "name": "Alexis Nichols",
+    "title": "Assistant Behavior Specialist",
+    "image": "https://theburkardschool.org/wp-content/uploads/2018/09/Alexis-Nichols.jpg",
+    "education": "Bachelor of Science, Psychology - California State University, Chico",
+    "school": "burkard"
+  },
+  {
+    "name": "Angelika Schilli, BCAT",
+    "title": "Classroom Behavior Specialist",
+    "image": "https://theburkardschool.org/wp-content/uploads/2018/09/Angelika-Schilli.jpg",
+    "education": "Bachelor’s Degree in Special Education, Diplom-Heilpädagogin - Katholische Fachhochschule Nordrhein-Westfalen (Catholic College of Social Work) - Münster, Germany, Board Certified Autism Technician",
+    "school": "burkard"
+  },
+  {
+    "name": "Nicholas Wrotniewski, MA, BCCS, CAS",
+    "title": "Founding Behavior Specialist",
+    "image": "https://theburkardschool.org/wp-content/uploads/2015/05/Nicholas.jpg",
+    "education": "Master of Arts, Education - Keller Graduate School, Board Certified Cognitive Specialist, Bachelor of Science in Technical Management - DeVry University",
+    "school": "burkard"
+  },
+  {
+    "name": "Molly B. Zielezinski, Ph.D.",
+    "title": "Director of Academics & Strategic Planning",
+    "image": "https://theburkardschool.org/wp-content/uploads/2015/05/molly600.jpg",
+    "education": "Doctorate of Learning Sciences and Technology Design - Stanford University, Master of Arts, Teaching, Elementary Education - Clark University, Bachelor of Arts, Psychology, Minor: Education - Clark University",
+    "school": "burkard"
+  },
+  {
+    "name": "Dr. Dale Jacknow",
+    "title": "Developmental and Behavioral Pediatrician",
+    "image": "https://theburkardschool.org/wp-content/uploads/2015/05/DrJacknow.jpg",
+    "education": "Doctor of Medicine - University of California, San Francisco, Residency, Pediatrics - Standford University Medical Center, Fellowship, Developmental and Behavioral Pediatrics - University of California, San Francisco, Board Certified in Developmental and Behavioral Pediatrics - American Board of Pediatrics, Dr. Jacknow’s website is www.dalejacknow.com",
+    "school": "burkard"
+  },
+  {
+    "name": "Dr. Helen Marlo",
+    "title": "Professor Chair, Clinical Psychology Department Notre Dame de Namur University • Licensed Clinical Psychologist (PSY 15318)",
+    "image": "https://theburkardschool.org/wp-content/uploads/2015/05/DrHelenMarlo.jpg",
+    "education": "Doctorate, Clinical-Community Psychology - University of South Carolina, Bachelor of Arts, Psychology - University of Missouri, Dr. Marlo’s website is www.helenmarlophd.com",
+    "school": "burkard"
+  }
+]

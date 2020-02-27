@@ -40,6 +40,7 @@ const normalize = (obj, test = false) => {
       rsi: Number((obj.rsi / 100).toFixed(2)),
       aboveSMA100: obj.open > obj.sma100,
       diffSMA100: Number((obj.open - obj.sma100).toFixed(2)),
+      
       /*aboveSAR: obj.sar / (obj.open * 2),
       macd: obj.macd,
       apo: obj.apo,
@@ -56,6 +57,7 @@ const normalize = (obj, test = false) => {
 
 const main = async () => {
   const start = Date.now();
+  const period = 365;
   try {
     const root = document.getElementById('root');
     let content = `
@@ -78,8 +80,8 @@ const main = async () => {
       ...aaplData,
       ...googData,
       ...msftData,
-      ...twtrData,
-      ...spyData
+      // ...twtrData,
+      // ...spyData
     ]
     */
     const initData = [
@@ -107,7 +109,6 @@ const main = async () => {
     let error = 0;
     let value = 10000;
     for (let i = allData.length - period; i < allData.length; i++) {
-      console.log(i - allData.length, '/', period)
       const res = net.run(allData[i].input);
 
       console.log(res, allData[i].input)
@@ -147,8 +148,8 @@ const main = async () => {
       AAPL,
       GOOG,
       MSFT,
-      SPY,
-      TWTR
+      // SPY,
+      // TWTR
     }
     
     // Test Input

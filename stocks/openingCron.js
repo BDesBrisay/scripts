@@ -18,7 +18,7 @@ const dataHaul = async (symbol) => {
     const closeMin = '15:59';
 
     const daily = await fetch(
-      `https://api.iextrading.com/1.0/stock/${symbol}/chart/date/${shortStr}`, 
+      `https://sandbox.iexapis.com/stable/stock/${symbol}/chart/date/${dashStr}?token=Tpk_e36f440149aa454fb74b25a94c8f4294`, 
       { method: 'get', headers: { 'Content-Type': 'application/json' } }
     ).then(res => res.json());
 
@@ -99,13 +99,13 @@ const startHaul = () => {
     'TWTR',
     'SPY',
     'MSFT'
-  ]
-  let round;
-  for (let i = 0; i < 1; i++) {
-    round = setTimeout(() => dataHaul(symbols[4]), 3000);
-  }
+  ];
+  symbols.map((symbol) => dataHaul(symbol));
 }
 
+startHaul();
+
+/*
 const job = new CronJob(
   '31 6 * * 1-5',
   startHaul(),
@@ -115,6 +115,9 @@ const job = new CronJob(
 );
 
 job.start();
+*/
+
+
 
 /*
 if (AVMOM['Technical Analysis: MOM'] && AVMOM['Technical Analysis: MOM'][dateStr]) {
