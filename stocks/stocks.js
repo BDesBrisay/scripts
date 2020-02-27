@@ -18,6 +18,7 @@ const scale = 250;
 const normalize = (obj, test = false) => {
   if (test) {
     return {
+      open: obj.open,
       aboveSAR: obj.open > obj.sar,
       diffSAR: Number((obj.open - obj.sar).toFixed(2)),
       macd: obj.macd,
@@ -31,6 +32,7 @@ const normalize = (obj, test = false) => {
   const gain = obj.close > obj.open ? 1 : 0;
   return { 
     input: { 
+      open: obj.open,
       aboveSAR: obj.open > obj.sar,
       diffSAR: Number((obj.open - obj.sar).toFixed(2)),
       macd: obj.macd,
@@ -48,7 +50,7 @@ const normalize = (obj, test = false) => {
       // mom: obj.mom,
       // open: obj.open / scale, // previous close? 
     }, 
-    output: [ gain ]
+    output: { gain }
   }
 }
 
@@ -61,6 +63,7 @@ const main = async () => {
         <h1>Predicting gain at close using psar, macd, rsi, apo, and moving averages</h1>
     `;
 
+    const period = 365;
     const symbol = 'SPY';
     const aaplData = JSON.parse(AAPL5y);
     const googData = JSON.parse(GOOG5y);
@@ -68,6 +71,9 @@ const main = async () => {
     const spyData = JSON.parse(SPY5y);
     const twtrData = JSON.parse(TWTR5y);
 
+    const msft20y = JSON.parse(MSFT5y);
+
+    /*
     const initData = [
       ...aaplData,
       ...googData,
@@ -75,16 +81,20 @@ const main = async () => {
       ...twtrData,
       ...spyData
     ]
+    */
+    const initData = [
+      ...msft20y
+    ]
 
     const allData = initData.map((item, i) => normalize(item, false));
     console.log(allData, formatTime(Date.now() - start));
 
-    const net = new brain.NeuralNetwork({ hiddenLayers: [12] });
+    const net = new brain.NeuralNetwork({ hiddenLayers: [8] });
 
     let iter = 1000;
     content += '<p>Training...</p>';
-    net.train(allData.slice(0, allData.length - 504), {
-      iterations: 20000,
+    net.train(allData.slice(0, allData.length - period), {
+      iterations: 5000,
       callback: () => {
         console.log(iter, formatTime(Date.now() - start)); 
         iter += 1000;
@@ -96,10 +106,13 @@ const main = async () => {
     const results = [];
     let error = 0;
     let value = 10000;
-    for (let i = allData.length - 504; i < allData.length; i++) {
-      console.log(i - allData.length, '/', 504)
+    for (let i = allData.length - period; i < allData.length; i++) {
+      console.log(i - allData.length, '/', period)
       const res = net.run(allData[i].input);
-      const truth = Math.round(res) === allData[i].output[0];
+
+      console.log(res, allData[i].input)
+
+      const truth = Math.round(res) === allData[i].output.gain;
       results.push(truth);
       const investment = value > 20000 ? value * 0.75 : value;
 
@@ -113,8 +126,8 @@ const main = async () => {
       }
       content += `<div style="height: ${value / 500}px; flex: 1; background: ${truth ? 'green' : 'red'};"></div>`;
 
-      if (Math.abs(allData[i].output[0] - res) > 0.05) {
-        error += Math.abs(allData[i].output[0] - res);
+      if (Math.abs(allData[i].output.gain - res) > 0.05) {
+        error += Math.abs(allData[i].output.gain - res);
       }
       if (i === allData.length - 1) {
         content += `</div><p>Prediction for ${symbol} to gain on ${initData[i].label}: ${Number(res)}</p>`;
@@ -141,7 +154,7 @@ const main = async () => {
     // Test Input
     Object.keys(inputs).map((item, i) => {
       console.log(i, item, inputs[item], normalize(inputs[item], true))
-      content += `<p>Test Prediction Output for ${item}: ${net.run(normalize(inputs[item], true))}</p>`;
+      content += `<p>Test Prediction Output for ${item}: ${net.run(normalize(inputs[item], true)).gain}</p>`;
     });
     //content += `<p>Test Prediction Output for GOOG: ${net.run(goog)}</p>`;
 
