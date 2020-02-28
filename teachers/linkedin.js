@@ -26,21 +26,29 @@ const getResult = async (i, name, school) => {
     await page.keyboard.press(String.fromCharCode(13));
 
     console.log(i, name, school)
-    const wait = (Math.random() * 1000).toFixed(0);
+    const wait = Math.ceil(Math.random() * 1000);
+
+    console.log(typeof wait, wait)
+    
     await page.waitFor(wait);
 
+
+    console.log('PRELINK ')
+
     const link = await page.evaluate(() => {
-      const result = document.querySelector('#rso > div > div > div:nth-child(1) > div > div > div.r > a');
+      const result = document.querySelector('#rso > div:nth-child(1) > div > div:nth-child(1) > div > div > div.r > a');
       if (result) return result.href;
       else return false;
     });
+
+    console.log('LINK ', link)
 
     await page.waitFor(wait);
 
     await page.close();
     await browser.close();
 
-    return link
+    return link;
   }
   catch (e) {
     console.error(e);
@@ -68,17 +76,19 @@ async function googleResult(i, name, school) {
 
 async function main() {
   let data = [];
-  for (let i in teachers) {
+  // for (let i in teachers) {
+    const i = 0
     const item = teachers[i];
 
     await sleep(5000);
     console.log(i)
 
-    const res = await googleResult(i, item.name, item.school);
+    // const res = await googleResult(i, item.name, item.school);
+    const res = await getResult(i, item.name, item.school);
     if (res) item.link = res;
 
     data.push(item);
-  }
+  // }
   console.log(data.length);
 
   await writeFileAsync(OUT_FILE, JSON.stringify(data));
