@@ -12,7 +12,14 @@ const FULL_OUT_FILE = './ALL-nyWithLinks.json';
 const writeFileAsync = promisify(fs.writeFile);
 const appendFileAsync = promisify(fs.appendFile);
 
+/* GOOGLE
 const URL = 'https://www.google.com';
+const searchSelector = '#tsf > div:nth-child(2) > div.A8SBwf > div.RNNXgb > div > div.a4bIc > input';
+const linkSelector = '#rso > div:nth-child(1) > div > div:nth-child(1) > div > div > div.r > a';
+*/
+
+const URL = 'https://www.duckduckgo.com';
+const searchSelector = '#search_form_input_homepage';
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -25,19 +32,20 @@ const getResult = async (i, name, school) => {
     const query = `site:linkedin.com ${name}`; // ${school}`
 
     await page.goto(URL);
-    await page.type('#tsf > div:nth-child(2) > div.A8SBwf > div.RNNXgb > div > div.a4bIc > input', query, { delay: 10 });
+    await page.type(searchSelector, query, { delay: 10 });
     await page.keyboard.press(String.fromCharCode(13));
 
     const wait = Math.ceil(Math.random() * 5000);
     await page.waitFor(wait);
 
     const link = await page.evaluate(() => {
-      const result = document.querySelector('#rso > div:nth-child(1) > div > div:nth-child(1) > div > div > div.r > a');
+      const linkSelector = '#r1-0 > div > h2 > a.result__a';
+      const result = document.querySelector(linkSelector);
       if (result) return result.href;
       else return false;
     });
 
-    console.log(i, name, school)
+    console.log(i, name, school, link)
 
     await page.waitFor(wait);
 
@@ -102,7 +110,7 @@ async function main() {
   await appendFileAsync(OUT_FILE, '[\n');
 
   let data = [];
-  let place = 153;
+  let place = 821;
 
   console.log(place, ' / ', teachers.length);
   const arr = teachers.slice(place);
@@ -117,7 +125,7 @@ async function main() {
     data.push(item);
     await appendFileAsync(OUT_FILE, `\t${JSON.stringify(item)},\n`);
 
-    console.log('DONE:', i + place)
+    console.log('DONE:', (i + place))
     await sleep(5000);
   }
 
@@ -127,5 +135,5 @@ async function main() {
   await writeFileAsync(FULL_OUT_FILE, JSON.stringify(data));
 }
 
-// main();
-debug(1, 'bobby', 'brown');
+main();
+// debug(1, 'bobby', 'brown');
