@@ -110,7 +110,7 @@ async function main() {
   await appendFileAsync(OUT_FILE, '[\n');
 
   let data = [];
-  let place = 821;
+  let place = 4162;
 
   console.log(place, ' / ', teachers.length);
   const arr = teachers.slice(place);
