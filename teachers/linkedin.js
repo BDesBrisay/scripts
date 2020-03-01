@@ -5,12 +5,18 @@ const google = require('google');
 const { promisify } = require('util');
 const fs = require('fs');
 
+const writeFileAsync = promisify(fs.writeFile);
+const appendFileAsync = promisify(fs.appendFile);
+
+const teachers = require('./bayarea/bayarea-schools.json');
+const OUT_FILE = './bayarea/bayAreaWithLinks.json';
+const FULL_OUT_FILE = './bayarea/ALL-bayAreaWithLinks.json';
+
+/* NY TEACHERS
 const teachers = require('./ny-schools.json');
 const OUT_FILE = './nyWithLinks.json';
 const FULL_OUT_FILE = './ALL-nyWithLinks.json';
-
-const writeFileAsync = promisify(fs.writeFile);
-const appendFileAsync = promisify(fs.appendFile);
+*/
 
 /* GOOGLE
 const URL = 'https://www.google.com';
@@ -110,7 +116,7 @@ async function main() {
   await appendFileAsync(OUT_FILE, '[\n');
 
   let data = [];
-  let place = 4162;
+  let place = 0;
 
   console.log(place, ' / ', teachers.length);
   const arr = teachers.slice(place);
@@ -125,7 +131,7 @@ async function main() {
     data.push(item);
     await appendFileAsync(OUT_FILE, `\t${JSON.stringify(item)},\n`);
 
-    console.log('DONE:', (i + place))
+    console.log('DONE:', Number(i + place))
     await sleep(5000);
   }
 
