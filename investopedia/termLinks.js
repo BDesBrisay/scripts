@@ -1,83 +1,105 @@
-'use strict';
-
-const puppeteer = require('puppeteer');
+const crypto = require('crypto');
+const cheerio = require('cheerio');
+const fetch = require('node-fetch');
 const fs = require('fs');
-const { promisify } = require('util');
+const readline = require('readline');
 
-const appendFileAsync = promisify(fs.appendFile);
-const writeFileAsync = promisify(fs.writeFile);
+// const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+const letters = 'xyz'.split('');
 
-async function main(url, school) {
-  try {
-    const data = await grabPage(url, school);
+for (let i in letters) {
+  const letter = letters[i];
 
-    console.log(data.length);
-    await writeFileAsync(`${school}.json`, JSON.stringify(data, null, 2));
-  }
-  catch (error) {
-    console.error(error);
-  }
+  const rl = readline.createInterface({
+    input: fs.createReadStream(`terms-${letter}.txt`),
+    crflDdelay: Infinity
+  });
+
+  const lines = [];
+
+  rl.on('line', (line) => {
+    line = line.replace(/,\s*$/, '');
+    lines.push(line);
+  });
+
+  rl.on('close', () => {
+    main(lines, i);
+  });
+
+  console.log('finished');
 }
 
-async function grabPage(url, school) {
+async function main(lines, i) {
   try {
-    const browser = await puppeteer.launch({ headless: true });
-    const page = await browser.newPage();
+    const promises = lines.map(line => getTerm(line));
+    const results = await Promise.all(promises);
+    // console.log(results);
 
-    const status = await page.goto(url, {
-      waitUntil: ['domcontentloaded', 'load', 'networkidle0']
-    });
-
-    if (!status.ok) {
-      console.error(`Cannot open ${url}`);
-      throw new Error();
+    if (i === 0) {
+      fs.appendFile(
+        `terms.js`, 
+        'const terms = [\n', 
+        (e) => {if (e) throw e}
+      );
     }
 
-    const data = await page.evaluate(async (school, timeout) => {
-      function timeout(ms) { return new Promise(resolve => setTimeout(resolve, ms)); };
-
-      let all = [];
-      while (all.length < 400 && document.querySelector('.fsNextPageLink')) {
-        const items = new Array(...document.querySelectorAll('.fsConstituentItem'))
-          .map((el, i) => {
-            const name = el.querySelector('.fsFullName').innerText;
-            const title = el.querySelector('.fsTitles');
-            const phone = el.querySelector('.fsPhone') || el.querySelector('.fsPhones');
-            const email = el.querySelector('.fsEmail a');
-            const location = el.querySelector('.fsLocation') || el.querySelector('.fsLocations');
-            const image = el.querySelector('.fsThumbnail');
-            const education = el.querySelector('.fsDegrees');
-    
-            const res = { name, school };
-            if (title) res.title = title.innerText;
-            if (phone) res.phone = phone.innerText;
-            if (location) res.location = location.innerText;
-            if (image) res.image = image.src;
-            if (education) res.education = education.innerText.replace('\n', ', ');
-            if (email) res.email = email.href;
-            else res.email = name[0] + name.split(' ')[1]+ `@${school}.edu`;
-
-            return res;
-          });
-
-        console.log(all.length, items.length);
-        all = [...all, ...items];
-
-        document.querySelector('.fsNextPageLink').click();
-        await timeout(3000);
+    for (let i in results) {
+      const term = results[i];
+      console.log(i, term.title);
+      if (term !== undefined) {
+        await fs.appendFile(
+          `terms.js`, 
+          `\t${JSON.stringify(term)},\n`, 
+          (e) => {if (e) throw e}
+        );
       }
-
-      return all;
-    }, school);
-
-    // await page.close();
-    // await browser.close();
-
-    return data;
+    }
+    /*
+    fs.appendFile(
+      `terms.js`, 
+      '];', 
+      (e) => {if (e) throw e}
+    );
+    */
   }
   catch (error) {
     console.error(error);
   }
 }
 
-main('https://www.investopedia.com/terms-beginning-with-a-4769351');
+const getTerm = async (url) => {
+  try {
+    const res = await fetch(url);
+    const text = await res.text();
+    const $ = cheerio.load(text);
+    let term = { 
+      url,
+      takeaways: []
+    };
+
+    // term title
+    let title = $('#article-heading_2-0').text();
+    term.title = title.trim();
+
+    // quick description
+    let description = $('#mntl-sc-block_1-0-1').text();
+    if (description === '') {
+      description = $('#mntl-sc-block_1-0').text();
+    }
+    term.description = description.trim();
+
+    // video
+    // const video = $('.inline-video video').attr('src');
+    // term.video = video;
+
+    // takeaways
+    $('.theme-whatyouneedtoknow li').each((i, item) => {
+      term.takeaways[i] = $(item).text();
+    })
+
+    return term;
+  }
+  catch (e) {
+    console.error(e);
+  }
+}
